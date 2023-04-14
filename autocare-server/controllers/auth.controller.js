@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
 	const { name, email, password, type } = req.body;
@@ -25,4 +26,22 @@ exports.register = async (req, res) => {
 
 	const { password: newPassword, ...newUser } = user.toJSON();
 	res.status(201).json(newUser);
+};
+
+exports.login = async (req, res) => {
+	const { email, password } = req.body;
+	const user = await User.findOne({ email });
+
+	if (!user) return res.status(404).json({ message: "Invalid Credentials" });
+
+	const isMatched = await bcrypt.compare(password, user.password);
+	if (!isMatched)
+		return res.status(404).json({ message: "Invalid Credentials" });
+
+	const token = jwt.sign(
+		{ id: user._id, name: user.name, email: user.email, type: user.type },
+		process.env.SECRET_KEY
+	);
+
+	res.json({ token });
 };
