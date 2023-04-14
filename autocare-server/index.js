@@ -3,6 +3,10 @@ const app = express();
 require("dotenv").config();
 app.use(express.json());
 
+const { adminMiddleware } = require("./middlewares/admin.middleware");
+const { storeAuthMiddleware } = require("./middlewares/storeAuth.middleware");
+const { userAuthMiddleware } = require("./middlewares/userAuth.middleware");
+
 const authRouter = require("./routes/auth.routes");
 app.use("/auth", authRouter);
 
