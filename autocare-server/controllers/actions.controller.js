@@ -32,7 +32,14 @@ exports.getMessages = async (req, res) => {
 };
 
 exports.addItem = async (req, res) => {
-	const { id, name, made, model, year, price, image, category } = req.body;
+	const { id } = req.body;
+	const name = req.body.name;
+	const made = req.body.made;
+	const model = req.body.model;
+	const year = req.body.year;
+	const price = req.body.price;
+	const image = req.body.image;
+	const category = req.body.category;
 
 	const user = await User.findById(id);
 
