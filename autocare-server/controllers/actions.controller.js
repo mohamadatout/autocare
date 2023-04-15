@@ -107,3 +107,30 @@ exports.getReviews = async (req, res) => {
 
 	res.json(store.reviews);
 };
+
+exports.addFavourite = async (req, res) => {
+	const { customer, user, item } = req.body;
+
+	const custmer = await User.findById(customer);
+	const store = await User.findById(user);
+	let favItem = store.items.filter((each) => each.id == item)[0];
+
+	const favourited = custmer.favourites.some((item) => item._id == favItem.id);
+
+	if (favourited) {
+		let newFav = custmer.favourites.filter((item) => item._id != favItem.id);
+		custmer.favourites = newFav;
+		await custmer.save();
+		res.json({
+			message: "Item removed from favourites",
+			user: custmer,
+		});
+	} else {
+		custmer.favourites.push(favItem);
+		await custmer.save();
+		res.json({
+			message: "Item added to favourites",
+			user: custmer,
+		});
+	}
+};
