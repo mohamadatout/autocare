@@ -56,3 +56,16 @@ exports.addItem = async (req, res) => {
 	await user.save();
 	res.json(user);
 };
+
+exports.deleteItem = async (req, res) => {
+	const { user, itemId } = req.body;
+
+	const store = await User.findById(user);
+
+	let items = store.items.filter((item) => item.id != itemId);
+	store.items = items;
+	await store.save();
+
+	// console.log(store);
+	res.json(store);
+};
