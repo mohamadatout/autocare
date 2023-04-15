@@ -9,6 +9,7 @@ const {
 	getStores,
 	getItemsOfStore,
 	writeReview,
+	getReviews,
 } = require("../controllers/actions.controller");
 
 router.post("/sendMessage", sendMessage);
@@ -18,5 +19,6 @@ router.delete("/deleteItem", deleteItem);
 router.get("/getStores", getStores);
 router.post("/getItemsOfStore", getItemsOfStore);
 router.post("/writeReview", writeReview);
+router.post("/getReviews", getReviews);
 
 module.exports = router;
