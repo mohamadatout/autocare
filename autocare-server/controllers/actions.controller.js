@@ -74,3 +74,13 @@ exports.getStores = async (req, res) => {
 	const stores = await User.find({ type: "user" });
 	res.json(stores);
 };
+
+exports.getItemsOfStore = async (req, res) => {
+	const user = req.body.user;
+
+	const store = await User.findById(user);
+
+	if (store) {
+		res.json(store.items);
+	}
+};
