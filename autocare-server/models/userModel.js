@@ -29,7 +29,7 @@ const itemSchema = new mongoose.Schema({
 });
 
 const reviewSchema = new mongoose.Schema({
-	user: {
+	customer: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User",
 		required: true,
