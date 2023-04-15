@@ -28,6 +28,18 @@ const itemSchema = new mongoose.Schema({
 	},
 });
 
+const reviewSchema = new mongoose.Schema({
+	user: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "User",
+		required: true,
+	},
+	review: {
+		type: String,
+		required: true,
+	},
+});
+
 const storeSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -53,6 +65,7 @@ const storeSchema = new mongoose.Schema({
 		required: true,
 	},
 	items: [itemSchema],
+	reviews: [reviewSchema],
 });
 
 const Store = mongoose.model("Store", storeSchema);
