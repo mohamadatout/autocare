@@ -19,7 +19,6 @@ exports.register = async (req, res) => {
 	user.email = email;
 	const hashedPassword = await bcrypt.hash(password, 10);
 	user.password = hashedPassword;
-	user.favourites = [];
 	if (type) user.type = type;
 
 	await user.save();
