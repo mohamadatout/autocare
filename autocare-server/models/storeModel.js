@@ -62,6 +62,7 @@ const storeSchema = new mongoose.Schema({
 	},
 	subscription: {
 		type: Boolean,
+		default: true,
 		required: true,
 	},
 	items: [itemSchema],
