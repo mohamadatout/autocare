@@ -84,3 +84,18 @@ exports.getItemsOfStore = async (req, res) => {
 		res.json(store.items);
 	}
 };
+
+exports.writeReview = async (req, res) => {
+	const { user, customer, review } = req.body;
+
+	const store = await User.findById(user);
+	console.log(store);
+
+	store.reviews.push({
+		customer,
+		review,
+	});
+
+	await store.save();
+	res.json(store);
+};
