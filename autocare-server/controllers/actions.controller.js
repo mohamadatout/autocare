@@ -99,3 +99,11 @@ exports.writeReview = async (req, res) => {
 	await store.save();
 	res.json(store);
 };
+
+exports.getReviews = async (req, res) => {
+	const { user } = req.body;
+
+	const store = await User.findById(user);
+
+	res.json(store.reviews);
+};
