@@ -15,3 +15,17 @@ exports.sendMessage = async (req, res) => {
 
 	res.status(201).json(message);
 };
+
+exports.getMessages = async (req, res) => {
+	const { customer, user } = req.body;
+
+	const messages = await Message.find({ customer, user })
+		.populate("customer", "-password")
+		.populate("user", "-password");
+
+	if (messages) {
+		res.json({
+			allMessage: messages,
+		});
+	}
+};
