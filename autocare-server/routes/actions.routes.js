@@ -7,6 +7,7 @@ const {
 	addItem,
 	deleteItem,
 	getStores,
+	getItemsOfStore,
 } = require("../controllers/actions.controller");
 
 router.post("/sendMessage", sendMessage);
@@ -14,5 +15,6 @@ router.post("/getMessages", getMessages);
 router.post("/addItem", addItem);
 router.delete("/deleteItem", deleteItem);
 router.get("/getStores", getStores);
+router.post("/getItemsOfStore", getItemsOfStore);
 
 module.exports = router;
