@@ -10,6 +10,7 @@ const {
 	getItemsOfStore,
 	writeReview,
 	getReviews,
+	addFavourite,
 } = require("../controllers/actions.controller");
 
 router.post("/sendMessage", sendMessage);
@@ -20,5 +21,6 @@ router.get("/getStores", getStores);
 router.post("/getItemsOfStore", getItemsOfStore);
 router.post("/writeReview", writeReview);
 router.post("/getReviews", getReviews);
+router.post("/addFavourite", addFavourite);
 
 module.exports = router;
