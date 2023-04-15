@@ -26,3 +26,17 @@ exports.newStore = async (req, res) => {
 	const { password: newPassword, ...newStore } = store.toJSON();
 	res.status(201).json(newStore);
 };
+
+exports.changeSubscription = async (req, res) => {
+	const { _id } = req.body;
+
+	const store = await Store.findOne({ _id });
+	const opposite = !store.subscription;
+
+	const updatesStore = await Store.findOneAndUpdate(
+		{ _id },
+		{ $set: { subscription: opposite } },
+		{ new: true }
+	);
+	res.status(201).json(updatesStore);
+};
