@@ -69,3 +69,8 @@ exports.deleteItem = async (req, res) => {
 	// console.log(store);
 	res.json(store);
 };
+
+exports.getStores = async (req, res) => {
+	const stores = await User.find({ type: "user" });
+	res.json(stores);
+};
