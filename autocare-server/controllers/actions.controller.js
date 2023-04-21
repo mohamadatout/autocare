@@ -134,3 +134,11 @@ exports.addFavourite = async (req, res) => {
 		});
 	}
 };
+
+exports.getFavourites = async (req, res) => {
+	const { customer } = req.body;
+
+	const user = await User.findById(customer);
+
+	res.json(user.favourites);
+};
