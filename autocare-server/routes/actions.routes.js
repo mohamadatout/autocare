@@ -11,6 +11,7 @@ const {
 	writeReview,
 	getReviews,
 	addFavourite,
+	getFavourites,
 } = require("../controllers/actions.controller");
 
 router.post("/sendMessage", sendMessage);
@@ -22,5 +23,6 @@ router.post("/getItemsOfStore", getItemsOfStore);
 router.post("/writeReview", writeReview);
 router.post("/getReviews", getReviews);
 router.post("/addFavourite", addFavourite);
+router.post("/getFavourites", getFavourites);
 
 module.exports = router;
