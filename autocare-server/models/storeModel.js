@@ -1,4 +1,3 @@
-const { Double } = require("bson");
 const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
