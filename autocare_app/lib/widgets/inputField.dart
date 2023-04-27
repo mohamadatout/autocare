@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 
 class inputField extends StatefulWidget {
   final controller;
-  final String hintText;
+  final String? hintText;
   final bool obscureText;
   final bool pass;
+  final bool showBorder;
+  Widget? prefixIcon;
+  Widget? sufixIcon;
+  Color? fillColor;
 
-  const inputField(
+  inputField(
       {required this.controller,
-      required this.hintText,
-      required this.obscureText,
-      required this.pass});
+      this.hintText,
+      this.prefixIcon,
+      this.sufixIcon,
+      this.obscureText = false,
+      this.pass = false,
+      this.showBorder = true,
+      this.fillColor});
 
   @override
   State<inputField> createState() => _inputFieldState();
@@ -24,18 +32,27 @@ class _inputFieldState extends State<inputField> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: widget.fillColor,
+      ),
       child: TextField(
         // maxLength: 500,
-        obscureText: _isPressed,
+        obscureText: _isPressed && widget.obscureText,
+
         decoration: InputDecoration(
-          hintText: widget.hintText,
-          hintStyle: const TextStyle(fontFamily: "Sora"),
-          label: Text(
-            widget.hintText,
-            style: const TextStyle(fontFamily: "sora"),
-          ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+          prefixIcon: widget.prefixIcon,
+          suffix: widget.sufixIcon,
+          label: widget.hintText != null
+              ? Text(
+                  widget.hintText!,
+                  style: const TextStyle(fontFamily: "sora"),
+                )
+              : null,
+          border: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            borderSide:
+                widget.showBorder ? const BorderSide() : BorderSide.none,
           ),
           suffixIcon: widget.pass
               ? IconButton(
