@@ -3,18 +3,26 @@ import 'package:flutter/material.dart';
 class Button extends StatelessWidget {
   final Function()? onTap;
   final String text;
+  final double paddingVertical;
+  final double paddingHorizantal;
 
-  const Button({super.key, required this.onTap, required this.text});
+  const Button({
+    super.key,
+    required this.onTap,
+    required this.text,
+    required this.paddingVertical,
+    required this.paddingHorizantal,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        padding: const EdgeInsets.all(20),
-        margin: const EdgeInsets.symmetric(vertical: 20),
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 187, 50, 51),
+        padding: EdgeInsets.symmetric(
+            vertical: paddingVertical, horizontal: paddingHorizantal),
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Center(
