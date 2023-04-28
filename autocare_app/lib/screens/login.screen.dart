@@ -93,9 +93,7 @@ class _loginState extends State<login> {
                     ],
                   ),
 
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
 
                   Button(
                     onTap: signUserIn,
@@ -141,11 +139,19 @@ class _loginState extends State<login> {
 
                   RichText(
                     text: const TextSpan(
-                      text: "Don't have an account",
+                      text: "Don't have an account? ",
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: "sora",
                       ),
+                      children: [
+                        TextSpan(
+                          text: "Register",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 187, 50, 51),
+                              decoration: TextDecoration.underline),
+                        )
+                      ],
                     ),
                   ),
                 ],
