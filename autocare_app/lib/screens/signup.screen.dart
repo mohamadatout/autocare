@@ -99,7 +99,18 @@ class _SignupState extends State<Signup> {
                       ],
                     ),
                   ),
-                  Button(onTap: signUserUp, text: "Register"),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Button(
+                    onTap: signUserUp,
+                    text: "Register",
+                    paddingHorizantal: 16,
+                    paddingVertical: 16,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     children: [
                       Expanded(
@@ -122,7 +133,7 @@ class _SignupState extends State<Signup> {
                       ))
                     ],
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
                   const continueWith(
                       imgPath: "assets/google.png", withApp: "Google"),
                   const SizedBox(height: 25),
