@@ -20,37 +20,40 @@ class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: chats.length,
-        itemBuilder: (context, index) {
-          return Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            child: Align(
-              alignment: chats[index]["messageType"] == "reciever"
-                  ? Alignment.topLeft
-                  : Alignment.topRight,
-              child: Container(
-                constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width - 130),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: chats[index]["messageType"] == "reciever"
-                      ? Color.fromARGB(255, 246, 246, 246)
-                      : Color.fromARGB(255, 187, 50, 51),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: Text(
-                  chats[index]["messageContent"],
-                  style: chats[index]["messageType"] == "sender"
-                      ? TextStyle(fontSize: 18, color: Colors.white)
-                      : TextStyle(color: Colors.black, fontSize: 18),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 100),
+        child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: chats.length,
+          itemBuilder: (context, index) {
+            return Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              child: Align(
+                alignment: chats[index]["messageType"] == "reciever"
+                    ? Alignment.topLeft
+                    : Alignment.topRight,
+                child: Container(
+                  constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width - 130),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: chats[index]["messageType"] == "reciever"
+                        ? Color.fromARGB(255, 246, 246, 246)
+                        : Color.fromARGB(255, 187, 50, 51),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: Text(
+                    chats[index]["messageContent"],
+                    style: chats[index]["messageType"] == "sender"
+                        ? TextStyle(fontSize: 18, color: Colors.white)
+                        : TextStyle(color: Colors.black, fontSize: 18),
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
