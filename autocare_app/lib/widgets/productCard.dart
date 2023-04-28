@@ -22,6 +22,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
           color: Color.fromARGB(255, 246, 246, 246),
           borderRadius: BorderRadius.circular(20)),
