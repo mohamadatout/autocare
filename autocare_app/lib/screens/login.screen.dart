@@ -93,12 +93,18 @@ class _loginState extends State<login> {
                     ],
                   ),
 
+                  SizedBox(
+                    height: 20,
+                  ),
+
                   Button(
                     onTap: signUserIn,
                     text: "Sign in",
+                    paddingHorizantal: 16,
+                    paddingVertical: 16,
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 30),
 
                   Row(
                     children: [
