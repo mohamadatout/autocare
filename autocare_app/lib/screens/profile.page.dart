@@ -14,6 +14,10 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    void signUserout() {
+      print("User signed out");
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -62,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   SizedBox(height: 30),
                   Button(
-                    onTap: () {},
+                    onTap: signUserout,
                     text: "Sign out",
                     paddingVertical: 10,
                     paddingHorizantal: 0,
