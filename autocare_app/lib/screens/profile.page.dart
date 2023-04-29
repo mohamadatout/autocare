@@ -1,6 +1,7 @@
 import 'package:autocare_app/widgets/button.dart';
 import 'package:autocare_app/widgets/store.bottomNavbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -12,12 +13,26 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  // File? image;
+
+  // Future pickImage() async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //     if (image == null) return;
+
+  //     final imageTemporary = File(image.path);
+  //     setState(() => this.image = imageTemporary);
+  //   } on PlatformException catch (e) {
+  //     print("Failed to pick image : $e");
+  //   }
+  // }
+
+  void signUserout() {
+    print("User signed out");
+  }
+
   @override
   Widget build(BuildContext context) {
-    void signUserout() {
-      print("User signed out");
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -56,6 +71,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   Text(
                     "mohamad.atout0@gmail.com",
                     style: TextStyle(fontFamily: "Sora", fontSize: 16),
+                  ),
+                  SizedBox(height: 30),
+                  Button(
+                    onTap: () {},
+                    text: "Change Profile Picture",
+                    paddingVertical: 10,
+                    paddingHorizantal: 0,
                   ),
                   SizedBox(height: 30),
                   Button(
