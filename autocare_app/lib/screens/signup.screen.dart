@@ -142,7 +142,7 @@ class _SignupState extends State<Signup> {
                   RichText(
                     text: TextSpan(
                       text: "Already have an account? ",
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: Colors.black, fontFamily: "sora"),
                       children: [
                         TextSpan(
                           recognizer: TapGestureRecognizer()
