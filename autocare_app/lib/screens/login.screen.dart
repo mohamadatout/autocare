@@ -1,22 +1,27 @@
 import 'package:autocare_app/widgets/contnueWithTile.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/inputField.dart';
 import '../widgets/button.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   // bool _isPressed = false;
   var usernameController = TextEditingController();
   var passwordController = TextEditingController();
 
-  void signUserIn() {}
+  // void validate() => _form.currentState?.validate();
+
+  void signUserIn() {
+    Navigator.of(context).popAndPushNamed("/userHome");
+  }
 
   @override
   Widget build(BuildContext context) {
