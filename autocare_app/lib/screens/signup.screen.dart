@@ -18,7 +18,7 @@ class _SignupState extends State<Signup> {
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
   void signUserUp() {
-    Navigator.of(context).popAndPushNamed(RouteManager.storeHomePage);
+    Navigator.of(context).popAndPushNamed(RouteManager.storeMainScreen);
   }
 
   @override
