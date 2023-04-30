@@ -1,3 +1,4 @@
+import 'package:autocare_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -25,7 +26,7 @@ class _oneChatState extends State<oneChat> {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        print("Hello");
+        Navigator.of(context).pushNamed(RouteManager.messages);
       },
       leading: Image.asset(
         widget.imgURL,
