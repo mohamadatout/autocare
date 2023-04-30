@@ -71,44 +71,38 @@ class _StoreHomePageState extends State<StoreHomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          "All Items",
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SearchBar(),
-              SizedBox(
-                height: 20,
-              ),
-              ListView.builder(
-                physics: ScrollPhysics(parent: null),
-                shrinkWrap: true,
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return ProductCard(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SearchBar(),
+            SizedBox(
+              height: 20,
+            ),
+            ListView.builder(
+              physics: ScrollPhysics(parent: null),
+              shrinkWrap: true,
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    print("Hello");
+                  },
+                  child: ProductCard(
                     imgURL: data[index]["image"],
                     name: data[index]["name"],
                     made: data[index]["made"],
                     model: data[index]["model"],
                     year: data[index]["year"],
                     price: data[index]["price"],
-                  );
-                },
-              )
-            ],
-          ),
+                  ),
+                );
+              },
+            )
+          ],
         ),
       ),
-      bottomNavigationBar: BottomNavbar(),
     );
   }
 }
