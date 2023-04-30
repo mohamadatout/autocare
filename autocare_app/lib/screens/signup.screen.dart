@@ -17,7 +17,10 @@ class _SignupState extends State<Signup> {
   var usernameController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
-  void signUserUp() {}
+  void signUserUp() {
+    Navigator.of(context).popAndPushNamed(RouteManager.storeHomePage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
