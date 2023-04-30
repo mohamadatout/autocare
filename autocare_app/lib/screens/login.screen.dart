@@ -20,7 +20,9 @@ class _LoginState extends State<Login> {
 
   // void validate() => _form.currentState?.validate();
 
-  void signUserIn() {}
+  void signUserIn() {
+    Navigator.of(context).popAndPushNamed(RouteManager.userHomePage);
+  }
 
   @override
   Widget build(BuildContext context) {
