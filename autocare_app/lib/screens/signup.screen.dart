@@ -1,4 +1,6 @@
+import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:autocare_app/widgets/button.dart';
@@ -138,11 +140,16 @@ class _SignupState extends State<Signup> {
                       imgPath: "assets/google.png", withApp: "Google"),
                   const SizedBox(height: 25),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       text: "Already have an account? ",
-                      style: TextStyle(color: Colors.black, fontSize: 12),
+                      style: TextStyle(color: Colors.black),
                       children: [
                         TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context)
+                                  .popAndPushNamed(RouteManager.login);
+                            },
                           text: "Login",
                           style: TextStyle(
                               color: Color.fromARGB(255, 187, 50, 51),

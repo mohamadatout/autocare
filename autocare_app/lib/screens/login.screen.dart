@@ -1,3 +1,4 @@
+import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,7 @@ class _LoginState extends State<Login> {
 
   // void validate() => _form.currentState?.validate();
 
-  void signUserIn() {
-    Navigator.of(context).popAndPushNamed("/userHome");
-  }
+  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +142,7 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 50),
 
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       text: "Don't have an account? ",
                       style: TextStyle(
                         color: Colors.black,
@@ -151,11 +150,14 @@ class _LoginState extends State<Login> {
                       ),
                       children: [
                         TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Navigator.of(context)
+                                .popAndPushNamed(RouteManager.signup),
                           text: "Register",
                           style: TextStyle(
                               color: Color.fromARGB(255, 187, 50, 51),
                               decoration: TextDecoration.underline),
-                        )
+                        ),
                       ],
                     ),
                   ),
