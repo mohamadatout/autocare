@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
   // void validate() => _form.currentState?.validate();
 
   void signUserIn() {
-    Navigator.of(context).popAndPushNamed(RouteManager.userHomePage);
+    Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
   }
 
   @override
@@ -80,6 +80,7 @@ class _LoginState extends State<Login> {
                   inputField(
                     controller: passwordController,
                     hintText: "Password",
+                    // fillColor: Color.fromARGB(255, 30, 30, 30),
                     obscureText: true,
                     pass: true,
                   ),
@@ -138,7 +139,7 @@ class _LoginState extends State<Login> {
 
                   const continueWith(
                     imgPath: "assets/google.png",
-                    withApp: "google",
+                    withApp: "Google",
                   ),
 
                   const SizedBox(height: 50),
