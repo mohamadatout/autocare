@@ -17,6 +17,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: BackButton(color: Colors.black),
         title: const Text(
           "Mhmd Al Agha",
           style: TextStyle(color: Colors.black),
