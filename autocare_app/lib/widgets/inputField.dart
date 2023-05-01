@@ -9,6 +9,7 @@ class inputField extends StatefulWidget {
   Widget? prefixIcon;
   Widget? sufixIcon;
   Color? fillColor;
+  TextInputType? keyboardType;
 
   inputField(
       {required this.controller,
@@ -18,7 +19,8 @@ class inputField extends StatefulWidget {
       this.obscureText = false,
       this.pass = false,
       this.showBorder = true,
-      this.fillColor});
+      this.fillColor,
+      this.keyboardType});
 
   @override
   State<inputField> createState() => _inputFieldState();
@@ -36,8 +38,10 @@ class _inputFieldState extends State<inputField> {
         borderRadius: BorderRadius.circular(20),
         color: widget.fillColor,
       ),
-      child: TextField(
+      child: TextFormField(
         // maxLength: 500,
+        controller: widget.controller,
+        keyboardType: widget.keyboardType,
         obscureText: _isPressed && widget.obscureText,
 
         decoration: InputDecoration(
