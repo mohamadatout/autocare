@@ -1,10 +1,10 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import Groups3Icon from "@mui/icons-material/Groups3";
+import PersonIcon from "@mui/icons-material/Person";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
 import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBoc";
@@ -25,11 +25,27 @@ const Dashboard = () => {
 			<Box
 				display="grid"
 				gridTemplateColumns="repeat(12, 1fr)"
-				gridAutoRows="140px"
-				gap="20px">
+				gridAutoRows="130px"
+				gap="10px">
 				{/* ROW 1 */}
 				<Box
-					gridColumn="span 3"
+					gridColumn="span 4"
+					backgroundColor={colors.primary[400]}
+					display="flex"
+					alignItems="center"
+					justifyContent="center">
+					<StatBox
+						title="20"
+						subtitle="All Users"
+						icon={
+							<Groups3Icon
+								sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+							/>
+						}
+					/>
+				</Box>
+				<Box
+					gridColumn="span 2"
 					backgroundColor={colors.primary[400]}
 					display="flex"
 					alignItems="center"
@@ -38,14 +54,14 @@ const Dashboard = () => {
 						title="20"
 						subtitle="Customers"
 						icon={
-							<EmailIcon
+							<PersonIcon
 								sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
 							/>
 						}
 					/>
 				</Box>
 				<Box
-					gridColumn="span 3"
+					gridColumn="span 2"
 					backgroundColor={colors.primary[400]}
 					display="flex"
 					alignItems="center"
@@ -54,14 +70,14 @@ const Dashboard = () => {
 						title="50"
 						subtitle="Stores"
 						icon={
-							<PointOfSaleIcon
+							<StorefrontIcon
 								sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
 							/>
 						}
 					/>
 				</Box>
 				<Box
-					gridColumn="span 3"
+					gridColumn="span 2"
 					backgroundColor={colors.primary[400]}
 					display="flex"
 					alignItems="center"
@@ -70,14 +86,14 @@ const Dashboard = () => {
 						title="33"
 						subtitle="Subscribed Stores"
 						icon={
-							<PersonAddIcon
+							<CheckIcon
 								sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
 							/>
 						}
 					/>
 				</Box>
 				<Box
-					gridColumn="span 3"
+					gridColumn="span 2"
 					backgroundColor={colors.primary[400]}
 					display="flex"
 					alignItems="center"
@@ -86,7 +102,7 @@ const Dashboard = () => {
 						title="17"
 						subtitle="Unsubscribed Stores"
 						icon={
-							<TrafficIcon
+							<CloseIcon
 								sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
 							/>
 						}
