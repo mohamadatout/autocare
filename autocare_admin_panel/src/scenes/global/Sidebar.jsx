@@ -13,6 +13,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import MenuIcon from "@mui/icons-material/Menu";
+import GroupsIcon from "@mui/icons-material/Groups";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
 	const theme = useTheme();
@@ -109,17 +110,24 @@ const Sidebar = () => {
 							variant="h6"
 							color={colors.grey[300]}
 							sx={{ m: "15px 0 5px 20px" }}>
-							Data
+							Managment
 						</Typography>
 						<Item
-							title="All Customer"
+							title="All Users"
+							to="/team"
+							icon={<GroupsIcon />}
+							selected={selected}
+							setSelected={setSelected}
+						/>
+						<Item
+							title="Customer"
 							to="/team"
 							icon={<PersonIcon />}
 							selected={selected}
 							setSelected={setSelected}
 						/>
 						<Item
-							title="All Stores"
+							title="Stores"
 							to="/contacts"
 							icon={<StorefrontIcon />}
 							selected={selected}
