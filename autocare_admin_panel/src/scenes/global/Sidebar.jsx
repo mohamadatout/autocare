@@ -1,19 +1,15 @@
 import { useState } from "react";
-import {
-	ProSideBar,
-	Menu,
-	MenuItem,
-	ProSidebarProvider,
-} from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
+import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
+import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import Groups3Icon from "@mui/icons-material/Groups3";
 import PersonIcon from "@mui/icons-material/Person";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import MenuIcon from "@mui/icons-material/Menu";
-import GroupsIcon from "@mui/icons-material/Groups";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
 	const theme = useTheme();
@@ -36,7 +32,7 @@ const Sidebar = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const [isCollapsed, setIsCollapsed] = useState(false);
-	const [selected, setSelected] = useState("Dahsboard");
+	const [selected, setSelected] = useState("Dashboard");
 
 	return (
 		<Box
@@ -50,21 +46,15 @@ const Sidebar = () => {
 				"& .pro-inner-item": {
 					padding: "5px 35px 5px 20px !important",
 				},
-				"&.pro-inner-item:hover": {
-					color: "red !important",
+				"& .pro-inner-item:hover": {
+					color: "#868dfb !important",
 				},
-				"&.pro-menu-item.active": {
-					color: "red !important",
-				},
-				".ps-menu-button:hover": {
-					"&:hover": {
-						backgroundColor: `${colors.grey[900]} !important`,
-					},
+				"& .pro-menu-item.active": {
+					color: "#6870fa !important",
 				},
 			}}>
-			<ProSidebarProvider collapsed={isCollapsed}>
+			<ProSidebar collapsed={isCollapsed}>
 				<Menu iconShape="square">
-					{/* LOGO AND MENU ICON */}
 					<MenuItem
 						onClick={() => setIsCollapsed(!isCollapsed)}
 						icon={isCollapsed ? <MenuIcon /> : undefined}
@@ -79,7 +69,7 @@ const Sidebar = () => {
 								alignItems="center"
 								ml="15px">
 								<Typography variant="h3" color={colors.grey[100]}>
-									ADMINIS
+									AutoCare
 								</Typography>
 								<IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
 									<MenuIcon />
@@ -92,7 +82,7 @@ const Sidebar = () => {
 						<Box mb="25px">
 							<Box textAlign="center">
 								<Typography
-									variant="h2"
+									variant="h3"
 									color={colors.grey[100]}
 									fontWeight="bold"
 									sx={{ m: "10px 0 0 0" }}>
@@ -111,43 +101,37 @@ const Sidebar = () => {
 							setSelected={setSelected}
 						/>
 
-						<Typography
-							variant="h6"
-							color={colors.grey[300]}
-							sx={{ m: "15px 0 5px 20px" }}>
-							Managment
-						</Typography>
 						<Item
 							title="All Users"
-							to="/team"
-							icon={<GroupsIcon />}
+							to="/users"
+							icon={<Groups3Icon />}
 							selected={selected}
 							setSelected={setSelected}
 						/>
 						<Item
-							title="Customer"
-							to="/team"
+							title="Customers"
+							to="/customers"
 							icon={<PersonIcon />}
 							selected={selected}
 							setSelected={setSelected}
 						/>
 						<Item
 							title="Stores"
-							to="/contacts"
+							to="/stores"
 							icon={<StorefrontIcon />}
 							selected={selected}
 							setSelected={setSelected}
 						/>
 						<Item
 							title="Add Store"
-							to="/invoices"
-							icon={<PersonAddIcon />}
+							to="/addStore"
+							icon={<PersonAddAlt1Icon />}
 							selected={selected}
 							setSelected={setSelected}
 						/>
 					</Box>
 				</Menu>
-			</ProSidebarProvider>
+			</ProSidebar>
 		</Box>
 	);
 };
