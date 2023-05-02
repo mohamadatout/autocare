@@ -37,11 +37,12 @@ const PieChart = () => {
 					},
 				},
 			}}
-			margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+			margin={{ top: 10, right: 100, bottom: 80, left: 100 }}
 			innerRadius={0.5}
 			padAngle={0.7}
 			cornerRadius={3}
-			activeOuterRadiusOffset={8}
+			activeInnerRadiusOffset={20}
+			activeOuterRadiusOffset={5}
 			borderColor={{
 				from: "color",
 				modifiers: [["darker", 0.2]],
@@ -85,8 +86,8 @@ const PieChart = () => {
 					translateX: 0,
 					translateY: 56,
 					itemsSpacing: 0,
-					itemWidth: 100,
-					itemHeight: 18,
+					itemWidth: 150,
+					itemHeight: 50,
 					itemTextColor: "#999",
 					itemDirection: "left-to-right",
 					itemOpacity: 1,
