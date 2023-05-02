@@ -50,11 +50,16 @@ const Sidebar = () => {
 				"& .pro-inner-item": {
 					padding: "5px 35px 5px 20px !important",
 				},
-				"& .pro-inner-item:hover": {
-					color: "#868dfb !important",
+				"&.pro-inner-item:hover": {
+					color: "red !important",
 				},
-				"& .pro-menu-item.active": {
-					color: "#6870fa !important",
+				"&.pro-menu-item.active": {
+					color: "red !important",
+				},
+				".ps-menu-button:hover": {
+					"&:hover": {
+						backgroundColor: `${colors.grey[900]} !important`,
+					},
 				},
 			}}>
 			<ProSidebarProvider collapsed={isCollapsed}>
@@ -91,7 +96,7 @@ const Sidebar = () => {
 									color={colors.grey[100]}
 									fontWeight="bold"
 									sx={{ m: "10px 0 0 0" }}>
-									Ed Roh
+									Mohamad Atout
 								</Typography>
 							</Box>
 						</Box>
