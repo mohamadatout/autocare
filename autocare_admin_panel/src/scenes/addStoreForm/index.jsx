@@ -3,11 +3,36 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import axios from "axios";
+import { useState } from "react";
 
 const Form = () => {
 	const isNonMobile = useMediaQuery("(min-width:600px)");
 
-	const handleFormSubmit = (values) => {
+	const handleFormSubmit = async (values) => {
+		var newStore = new FormData();
+		newStore.append("name", values.name);
+		newStore.append("email", values.email);
+		newStore.append("password", values.password);
+		console.log(newStore);
+		console.log(values.name);
+		const agha = newStore.get("email");
+		console.log(agha);
+		try {
+			const response = await axios({
+				method: "post",
+				url: "http://localhost:8000/admin/newStore",
+				data: {
+					name: values.name,
+					password: values.password,
+					email: values.email,
+				},
+			});
+			console.log(values);
+			const data = response;
+		} catch (error) {
+			console.log(error);
+		}
 		console.log(values);
 	};
 
