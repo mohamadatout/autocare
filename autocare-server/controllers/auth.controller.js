@@ -42,5 +42,5 @@ exports.login = async (req, res) => {
 		process.env.SECRET_KEY
 	);
 
-	res.json({ token });
+	res.json({ token, user });
 };
