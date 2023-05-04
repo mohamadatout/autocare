@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>252188317349-t17eeh0kilu2qjprdm082sn6dbfvhvt1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.252188317349-t17eeh0kilu2qjprdm082sn6dbfvhvt1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCWRp19LYaztOLlcNB_4wYV7Bt3d5CN2KI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>252188317349</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.autocareApp</string>
+	<key>PROJECT_ID</key>
+	<string>autocare-385419</string>
+	<key>STORAGE_BUCKET</key>
+	<string>autocare-385419.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:252188317349:ios:90a3ffe450dbf827061f4c</string>
+</dict>
+</plist>
