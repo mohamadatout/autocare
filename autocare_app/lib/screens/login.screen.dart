@@ -1,3 +1,4 @@
+import 'package:autocare_app/remote_dataSource/auth.dataDource.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
 import 'package:flutter/gestures.dart';
@@ -14,14 +15,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  // bool _isPressed = false;
-  var usernameController = TextEditingController();
-  var passwordController = TextEditingController();
+  var emailInput = TextEditingController();
+  var passwordInput = TextEditingController();
 
-  // void validate() => _form.currentState?.validate();
-
-  void signUserIn() {
-    Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
+  void signUserIn() async {
+    await AuthDataSource.login(emailInput.text, passwordInput.text, context);
+    // Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
   }
 
   @override
@@ -68,7 +67,7 @@ class _LoginState extends State<Login> {
 
                   // Email input
                   inputField(
-                    controller: usernameController,
+                    controller: emailInput,
                     hintText: "Email",
                     obscureText: false,
                     pass: false,
@@ -78,7 +77,7 @@ class _LoginState extends State<Login> {
 
                   // Password input
                   inputField(
-                    controller: passwordController,
+                    controller: passwordInput,
                     hintText: "Password",
                     // fillColor: Color.fromARGB(255, 30, 30, 30),
                     obscureText: true,
