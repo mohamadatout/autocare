@@ -1,3 +1,4 @@
+import 'package:autocare_app/remote_dataSource/auth.dataDource.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
 import 'package:flutter/gestures.dart';
@@ -14,10 +15,17 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  var usernameController = TextEditingController();
-  var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
-  void signUserUp() {
+  var nameInput = TextEditingController();
+  var emailInput = TextEditingController();
+  var passwordInput = TextEditingController();
+  var confirmPasswordInput = TextEditingController();
+  void signUserUp() async {
+    try {
+      await AuthDataSource.register(
+          nameInput.text, emailInput.text, passwordInput.text);
+    } catch (err) {
+      print(err);
+    }
     Navigator.of(context).popAndPushNamed(RouteManager.storeMainScreen);
   }
 
@@ -53,25 +61,25 @@ class _SignupState extends State<Signup> {
                   ),
                   const SizedBox(height: 20),
                   inputField(
-                    controller: usernameController,
+                    controller: nameInput,
                     hintText: "Full Name",
                     obscureText: false,
                     pass: false,
                   ),
                   inputField(
-                    controller: usernameController,
+                    controller: emailInput,
                     hintText: "Email",
                     obscureText: false,
                     pass: false,
                   ),
                   inputField(
-                    controller: usernameController,
+                    controller: passwordInput,
                     hintText: "Password",
                     obscureText: true,
                     pass: true,
                   ),
                   inputField(
-                    controller: usernameController,
+                    controller: confirmPasswordInput,
                     hintText: "Confirm Password",
                     obscureText: true,
                     pass: true,
