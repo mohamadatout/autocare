@@ -19,8 +19,12 @@ class _LoginState extends State<Login> {
   var passwordInput = TextEditingController();
 
   void signUserIn() async {
-    await AuthDataSource.login(emailInput.text, passwordInput.text, context);
-    // Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
+    try {
+      await AuthDataSource.login(emailInput.text, passwordInput.text, context);
+      Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
+    } catch (err) {
+      print(err);
+    }
   }
 
   @override
