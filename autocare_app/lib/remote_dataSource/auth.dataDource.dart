@@ -1,22 +1,28 @@
 import 'package:autocare_app/config/remote.config.dart';
+import 'package:autocare_app/enums/localTypes.dart';
+import 'package:autocare_app/enums/requestMethods.dart';
 import 'package:autocare_app/models/user.model.dart';
 import 'package:dio/dio.dart';
 import 'package:provider/provider.dart';
+import "package:autocare_app/config/local_storage.config.dart";
 
 abstract class AuthDataSource {
-  static Future login(email, password, context) async {
+  static Future<String?> login(email, password, context) async {
     try {
       final body = {
         "email": email,
         "password": password,
       };
-      final response = await dioClient.get("/auth/login", data: body);
+      print(body);
+      final response = await sendRequest(route: "/auth/login", load: body);
       print(response.data);
 
-      if (response.data["user"]["type"] == "customer") {
-        Provider.of<User>(context, listen: false)
-            .getUserFromMap(response.data["user"]);
-      }
+      // setLocal(type: LocalTypes.String, key: "access_token", value: response.data)
+
+      Provider.of<LoggedUser>(context, listen: false)
+          .saveUserData(response.data["user"]);
+
+      return response.data["user"]["type"] == "customer" ? "customer" : "store";
     } catch (error) {
       print(
         error.toString(),
