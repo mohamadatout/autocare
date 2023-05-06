@@ -5,4 +5,12 @@ class ReviewssProvider with ChangeNotifier {
   List<Review> reviews;
 
   ReviewssProvider({required this.reviews});
+
+  static Review fromJSON(Map json) {
+    return Review(
+      id: json["_id"],
+      customer: json["customer"],
+      content: json["content"],
+    );
+  }
 }
