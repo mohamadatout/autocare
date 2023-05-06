@@ -32,6 +32,7 @@ class StoresProvider with ChangeNotifier {
     return Store(
       name: json["name"],
       products: [],
+      reviews: [],
       location: "Beirut",
       email: json["email"],
       id: json["_id"],
