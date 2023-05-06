@@ -9,4 +9,16 @@ abstract class LoadDataSource {
       print(err);
     }
   }
+
+  static Future getStoresProducts(storeId) async {
+    final body = {
+      "user": storeId,
+    };
+    try {
+      final response =
+          await sendRequest(route: "/actions/getItemsOfStore", load: body);
+    } catch (err) {
+      print(err);
+    }
+  }
 }
