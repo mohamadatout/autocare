@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
 
-class User with ChangeNotifier {
+class LoggedUser with ChangeNotifier {
   String type;
   String name;
   String email;
   bool subscription;
 
-  User({
+  LoggedUser({
     required this.type,
     required this.name,
     required this.email,
     required this.subscription,
   });
 
-  void getUserFromMap(Map json) {
-    User user = User(
-      type: json["type"],
-      name: json["name"],
-      email: json["email"],
-      subscription: json["subscription"],
-    );
-
+  void saveUserData(Map json) {
     type = json["type"];
     name = json["name"];
     email = json["email"];
     subscription = json["subscription"];
-
-    print(json["email"]);
 
     notifyListeners();
   }
