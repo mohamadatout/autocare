@@ -19,6 +19,7 @@ class DisplayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 200,
       margin: EdgeInsets.only(bottom: 15),
       child: Column(
         children: [
