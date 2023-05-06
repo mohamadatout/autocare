@@ -19,4 +19,24 @@ class ProductsProvider with ChangeNotifier {
       category: json["category"],
     );
   }
+
+  Future getStoresProducts(storeId) async {
+    try {
+      final res = await LoadDataSource.getStoresProducts(storeId);
+
+      List<Product> _products = [];
+
+      res.forEach((jsonStore) {
+        final Product product = fromJSON(jsonStore);
+
+        _products.add(product);
+      });
+
+      products = _products;
+
+      notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
 }
