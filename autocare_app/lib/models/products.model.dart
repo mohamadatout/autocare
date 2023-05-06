@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+
 class Product {
-  final String name;
-  final String made;
-  final String model;
-  final String year;
-  final double price;
-  final String image;
-  final String category;
+  String name;
+  String made;
+  String model;
+  String year;
+  double price;
+  String image;
+  String category;
 
   Product({
     required this.name,
@@ -16,4 +18,24 @@ class Product {
     required this.image,
     required this.category,
   });
+
+  void getProductFromMap(Map json) {
+    Product product = Product(
+      name: json["name"],
+      made: json["made"],
+      model: json["model"],
+      year: json["year"],
+      price: json["price"],
+      image: json["image"],
+      category: json["category"],
+    );
+
+    name = json["name"];
+    made = json["made"];
+    model = json["model"];
+    year = json["year"];
+    price = json["price"];
+    image = json["image"];
+    category = json["category"];
+  }
 }
