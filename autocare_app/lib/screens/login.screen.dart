@@ -20,8 +20,15 @@ class _LoginState extends State<Login> {
 
   void signUserIn() async {
     try {
-      await AuthDataSource.login(emailInput.text, passwordInput.text, context);
-      Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
+      final userType = await AuthDataSource.login(
+          emailInput.text, passwordInput.text, context);
+      if (userType != null) {
+        if (userType == "customer") {
+          Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
+        } else {
+          Navigator.of(context).popAndPushNamed(RouteManager.storeMainScreen);
+        }
+      }
     } catch (err) {
       print(err);
     }
