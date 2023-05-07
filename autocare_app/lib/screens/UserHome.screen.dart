@@ -1,5 +1,6 @@
 import 'package:autocare_app/models/store.model.dart';
 import 'package:autocare_app/providers/stores.dart';
+import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/DisplayCard.dart';
 import 'package:autocare_app/widgets/searchBar.dart';
 import 'package:autocare_app/widgets/store.bottomNavbar.dart';
@@ -38,16 +39,23 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  SearchBar(),
+                  Row(children: [SearchBar()]),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: ListView.builder(
                         shrinkWrap: true,
                         itemCount: _stores.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushNamed(
+                                RouteManager.viewStore,
+                                arguments: {
+                                  "storeId": _stores[index].id,
+                                },
+                              );
+                            },
                             child: DisplayCard(
                               text: _stores[index].name,
                               imgURL: "assets/bmw.jpg",
