@@ -16,4 +16,12 @@ class ThemeProvider with ChangeNotifier {
 
     prefs.setBool("isDark", !(check ?? false));
   }
+
+  static Future<bool> getTheme() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final check = prefs.getBool("isDark");
+
+    return check ?? false;
+  }
 }
