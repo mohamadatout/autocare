@@ -39,22 +39,23 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
               child: Column(
                 children: [
                   SearchBar(),
-                  // Container(
-                  //   height: MediaQuery.of(context).size.height * 0.7,
-                  //   padding: const EdgeInsets.symmetric(vertical: 20),
-                  //   child:
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 0),
                       child: ListView.builder(
                         shrinkWrap: true,
                         itemCount: _stores.length,
                         itemBuilder: (context, index) {
-                          return DisplayCard(
-                            text: _stores[index].name,
-                            imgURL: "assets/bmw.jpg",
-                            imgHeight: 150,
-                            imgWidth: MediaQuery.of(context).size.width,
+                          return GestureDetector(
+                            onTap: () {},
+                            child: DisplayCard(
+                              text: _stores[index].name,
+                              imgURL: "assets/bmw.jpg",
+                              imgHeight: 150,
+                              imgWidth: MediaQuery.of(context).size.width,
+                              containerHeight:
+                                  MediaQuery.of(context).size.height * 0.23,
+                            ),
                           );
                         },
                       ),
