@@ -23,14 +23,12 @@ class _ViewStoreState extends State<ViewStore> {
         elevation: 0,
         title: const Text(
           "Wash Shield Auto Detailing",
-          style: TextStyle(
-            color: Colors.black,
-          ),
+          style: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -162,7 +160,7 @@ class _ViewStoreState extends State<ViewStore> {
                 ],
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Column(
                 children: [
@@ -177,37 +175,41 @@ class _ViewStoreState extends State<ViewStore> {
               ),
               Center(
                 child: Wrap(
-                  spacing: 30,
+                  spacing: 20,
                   children: const [
                     DisplayCard(
                       imgURL: "assets/bmw.jpg",
                       text: "Interior Parts",
                       imgHeight: 100,
                       imgWidth: 150,
+                      containerHeight: 200,
                     ),
                     DisplayCard(
                       imgURL: "assets/bmw.jpg",
                       text: "Exterior Parts",
                       imgHeight: 100,
                       imgWidth: 150,
+                      containerHeight: 200,
                     ),
                     DisplayCard(
                       imgURL: "assets/bmw.jpg",
                       text: "Motors",
                       imgHeight: 100,
                       imgWidth: 150,
+                      containerHeight: 200,
                     ),
                     DisplayCard(
-                      imgURL: "assets/bmw.jpg",
-                      text: "Parts",
-                      imgHeight: 100,
-                      imgWidth: 150,
-                    ),
+                        imgURL: "assets/bmw.jpg",
+                        text: "Parts",
+                        imgHeight: 100,
+                        imgWidth: 150,
+                        containerHeight: 200),
                     DisplayCard(
                       imgURL: "assets/bmw.jpg",
                       text: "Detailing",
                       imgHeight: 100,
                       imgWidth: 150,
+                      containerHeight: 200,
                     ),
                   ],
                 ),
