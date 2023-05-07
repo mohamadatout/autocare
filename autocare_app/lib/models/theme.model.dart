@@ -48,4 +48,6 @@ abstract class AppTheme {
       bodySmall: TextStyle(),
     ),
   );
+
+  static final ThemeData darkMode = ThemeData();
 }
