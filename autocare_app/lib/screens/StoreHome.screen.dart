@@ -1,6 +1,7 @@
 import 'package:autocare_app/models/products.model.dart';
 import 'package:autocare_app/models/user.model.dart';
 import 'package:autocare_app/providers/products.dart';
+import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/productCard.dart';
 import 'package:autocare_app/widgets/searchBar.dart';
 import 'package:autocare_app/widgets/store.bottomNavbar.dart';
@@ -25,15 +26,30 @@ class _StoreHomePageState extends State<StoreHomePage> {
 
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SearchBar(),
-              SizedBox(
-                height: 20,
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: Row(
+                children: [
+                  SearchBar(),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        RouteManager.addItem,
+                        arguments: {
+                          "storeId": storeId,
+                        },
+                      );
+                    },
+                    icon: Icon(Icons.add),
+                  )
+                ],
               ),
-              ListView.builder(
-                physics: ScrollPhysics(parent: null),
+            ),
+            Expanded(
+              child: ListView.builder(
+                physics: ScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: value.items.length,
                 itemBuilder: (context, index) {
@@ -47,9 +63,9 @@ class _StoreHomePageState extends State<StoreHomePage> {
                     ),
                   );
                 },
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       );
     });
