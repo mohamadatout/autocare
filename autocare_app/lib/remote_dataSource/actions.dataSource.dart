@@ -24,4 +24,8 @@ abstract class ActionsDataSource {
       print(err);
     }
   }
+
+  static Future deleteProduct(storeId, productId) async {
+    final body = {"user": storeId, "item": productId};
+  }
 }
