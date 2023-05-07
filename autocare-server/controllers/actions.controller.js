@@ -1,6 +1,7 @@
 const { measureMemory } = require("vm");
 const Message = require("../models/messageModel");
 const User = require("../models/userModel");
+const { log } = require("console");
 
 exports.sendMessage = async (req, res) => {
 	const { customer, user, content, sender } = req.body;
@@ -43,18 +44,23 @@ exports.addItem = async (req, res) => {
 
 	const user = await User.findById(id);
 
-	user.items.push({
-		name,
-		made,
-		model,
-		year,
-		price,
-		image,
-		category,
-	});
+	try {
+		console.log(req.body);
+		user.items.push({
+			name,
+			made,
+			model,
+			year,
+			price,
+			image,
+			category,
+		});
 
-	await user.save();
-	res.json(user);
+		await user.save();
+		return res.json({ item: user.items[user.items.length - 1] });
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 exports.deleteItem = async (req, res) => {
@@ -62,11 +68,10 @@ exports.deleteItem = async (req, res) => {
 
 	const store = await User.findById(user);
 
-	let items = store.items.filter((item) => item.id != itemId);
+	let items = store.items.filter((item) => item._id != itemId);
 	store.items = items;
 	await store.save();
 
-	// console.log(store);
 	res.json(store);
 };
 
