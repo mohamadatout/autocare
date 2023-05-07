@@ -2,6 +2,7 @@ import 'package:autocare_app/models/products.model.dart';
 import 'package:autocare_app/models/review.model.dart';
 import 'package:autocare_app/providers/products.dart';
 import 'package:autocare_app/providers/reviews.dart';
+import 'package:autocare_app/remote_dataSource/actions.dataSource.dart';
 import 'package:flutter/material.dart';
 
 class LoggedUser with ChangeNotifier {
@@ -10,7 +11,7 @@ class LoggedUser with ChangeNotifier {
   String name;
   String email;
   bool subscription;
-  List<dynamic> items;
+  List<Product> items;
   List<Review> reviews;
 
   LoggedUser({
@@ -24,16 +25,24 @@ class LoggedUser with ChangeNotifier {
   });
 
   void saveUserData(Map json) {
+    final List<Product> parsedProducts = [];
+    final List<Review> parsedReviews = [];
+
+    json["items"].forEach((item) {
+      parsedProducts.add(ProductsProvider.fromJSON(item));
+    });
+
+    json["reviews"].forEach((item) {
+      parsedReviews.add(ReviewssProvider.fromJSON(item));
+    });
+
     id = json["_id"];
     type = json["type"];
     name = json["name"];
     email = json["email"];
     subscription = json["subscription"];
-    items =
-        json["items"].map((item) => ProductsProvider.fromJSON(item)).toList();
-    reviews = json["reviews"]
-        .map((review) => ReviewssProvider.fromJSON(review))
-        .toList();
+    items = parsedProducts;
+    reviews = parsedReviews;
 
     notifyListeners();
   }
