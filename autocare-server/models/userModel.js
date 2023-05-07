@@ -15,7 +15,7 @@ const itemSchema = new mongoose.Schema({
 		type: String,
 	},
 	price: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	image: {
