@@ -78,7 +78,9 @@ abstract class RouteManager {
         );
       case addItem:
         return MaterialPageRoute(
-          builder: (context) => AddItem(),
+          builder: (context) => AddItem(
+            storeId: (settings.arguments as Map)["storeId"],
+          ),
         );
 
       default:
