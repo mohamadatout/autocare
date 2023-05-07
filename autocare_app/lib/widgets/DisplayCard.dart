@@ -7,6 +7,7 @@ class DisplayCard extends StatelessWidget {
   final String text;
   final double imgWidth;
   final double imgHeight;
+  final double containerHeight;
 
   const DisplayCard({
     super.key,
@@ -14,12 +15,13 @@ class DisplayCard extends StatelessWidget {
     required this.imgURL,
     required this.imgHeight,
     required this.imgWidth,
+    required this.containerHeight,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: containerHeight,
       margin: EdgeInsets.only(bottom: 15),
       child: Column(
         children: [
