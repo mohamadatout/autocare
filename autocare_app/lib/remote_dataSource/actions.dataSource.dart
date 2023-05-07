@@ -45,4 +45,21 @@ abstract class ActionsDataSource {
       print(err);
     }
   }
+
+  static Future favAddRemover(storeId, customerId, productId) async {
+    final body = {
+      "customer": customerId,
+      "user": storeId,
+      "item": productId,
+    };
+    try {
+      final response = await sendRequest(
+          route: "/actions/addFavourite",
+          load: body,
+          method: RequestMethods.POST);
+      return response.data;
+    } catch (err) {
+      print(err);
+    }
+  }
 }
