@@ -1,8 +1,10 @@
 import 'package:autocare_app/config/local_storage.config.dart';
 import 'package:autocare_app/enums/localTypes.dart';
+import 'package:autocare_app/models/theme.model.dart';
 import 'package:autocare_app/models/user.model.dart';
 import 'package:autocare_app/providers/products.dart';
 import 'package:autocare_app/providers/stores.dart';
+import 'package:autocare_app/providers/theme.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:autocare_app/screens/Login.screen.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isLoggedIn = false;
-  bool _idDark = false;
+  bool _isDark = false;
 
   void loggedInChecker() async {
     final token = await getLocal(type: LocalTypes.String, key: "access_token");
@@ -58,11 +60,17 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(
           value: StoresProvider(stores: []),
         ),
+        ChangeNotifierProvider.value(
+          value: ThemeProvider(isDark: _isDark),
+        )
       ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Login(),
-        onGenerateRoute: RouteManager.generateRoute,
+      child: Consumer<ThemeProvider>(
+        builder: (context, value, child) => MaterialApp(
+          theme: value.isDark ? AppTheme.darkMode : AppTheme.lightMode,
+          debugShowCheckedModeBanner: false,
+          home: const Login(),
+          onGenerateRoute: RouteManager.generateRoute,
+        ),
       ),
     );
   }
