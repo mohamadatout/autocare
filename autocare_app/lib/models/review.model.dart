@@ -1,11 +1,11 @@
 class Review {
   final String id;
-  final double customer;
-  final String content;
+  final String customer;
+  final String review;
 
   Review({
     required this.id,
     required this.customer,
-    required this.content,
+    required this.review,
   });
 }
