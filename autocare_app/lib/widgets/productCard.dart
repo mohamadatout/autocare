@@ -1,23 +1,29 @@
+// import 'dart:html';
+// import 'dart:js';
+
+import 'package:autocare_app/models/products.model.dart';
+import 'package:autocare_app/models/user.model.dart';
+import 'package:autocare_app/providers/products.dart';
 import 'package:autocare_app/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ProductCard extends StatelessWidget {
-  final String imgURL;
-  final String name;
-  final String made;
-  final String model;
-  final String year;
-  final String price;
+class ProductCard extends StatefulWidget {
+  final String storeId;
+  final Product productInfo;
 
-  const ProductCard({
-    super.key,
-    required this.imgURL,
-    required this.name,
-    required this.made,
-    required this.model,
-    required this.year,
-    required this.price,
-  });
+  const ProductCard(
+      {super.key, required this.productInfo, required this.storeId});
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  Future deleteProduct() async {
+    await Provider.of<LoggedUser>(context, listen: false)
+        .deleteProduct(widget.storeId, widget.productInfo.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,7 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  widget.productInfo.name,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Padding(
@@ -44,16 +50,16 @@ class ProductCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(made),
+                      Text(widget.productInfo.made),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(model),
+                          Text(widget.productInfo.model),
                           const Text(" • "),
-                          Text(year),
+                          Text(widget.productInfo.year),
                         ],
                       ),
-                      Text("$price \$"),
+                      Text("${widget.productInfo.price} \$"),
                     ],
                   ),
                 ),
@@ -61,7 +67,7 @@ class ProductCard extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        print("Item deleted");
+                        deleteProduct();
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
