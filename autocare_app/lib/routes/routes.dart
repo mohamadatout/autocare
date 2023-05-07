@@ -60,7 +60,9 @@ abstract class RouteManager {
         );
       case viewStore:
         return MaterialPageRoute(
-          builder: (context) => ViewStore(),
+          builder: (context) => ViewStore(
+            storeId: (settings.arguments as Map)["storeId"],
+          ),
         );
       // case :
       //   return MaterialPageRoute(
