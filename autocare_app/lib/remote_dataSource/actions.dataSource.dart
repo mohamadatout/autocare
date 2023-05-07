@@ -26,7 +26,16 @@ abstract class ActionsDataSource {
   }
 
   static Future deleteProduct(storeId, productId) async {
-    final body = {"user": storeId, "item": productId};
+    final body = {"user": storeId, "itemId": productId};
+    try {
+      final response = await sendRequest(
+          route: "/actions/deleteItem",
+          method: RequestMethods.DELETE,
+          load: body);
+      return response.data;
+    } catch (err) {
+      print(err);
+    }
   }
 
   static Future writeReview(storeId, customerId, content) async {

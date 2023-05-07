@@ -10,7 +10,7 @@ class ReviewssProvider with ChangeNotifier {
     return Review(
       id: json["_id"],
       customer: json["customer"],
-      content: json["content"],
+      review: json["review"],
     );
   }
 }
