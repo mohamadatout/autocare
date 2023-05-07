@@ -62,4 +62,29 @@ class LoggedUser with ChangeNotifier {
       print(err);
     }
   }
+
+  Future addProduct(
+      storeId, name, made, model, year, price, image, category) async {
+    try {
+      final res = await ActionsDataSource.addProduct(
+        storeId,
+        name,
+        made,
+        model,
+        year,
+        price,
+        image,
+        category,
+      );
+      print(res);
+
+      final newProduct = res["item"];
+      final parsedProduct = ProductsProvider.fromJSON(newProduct);
+      items.add(parsedProduct);
+
+      notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
 }
