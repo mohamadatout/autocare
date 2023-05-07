@@ -4,7 +4,7 @@ import 'package:autocare_app/enums/requestMethods.dart';
 import 'package:dio/dio.dart';
 
 final options = BaseOptions(
-  baseUrl: "http://192.168.0.107:8000",
+  baseUrl: "http://192.168.0.103:8000",
   contentType: Headers.jsonContentType,
 );
 
