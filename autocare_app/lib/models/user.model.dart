@@ -46,4 +46,20 @@ class LoggedUser with ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future deleteProduct(storeId, productId) async {
+    try {
+      final res = await ActionsDataSource.deleteProduct(storeId, productId);
+      items.removeWhere(
+        (product) {
+          print(product.id);
+          print(productId);
+          return product.id == productId;
+        },
+      );
+      notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
 }
