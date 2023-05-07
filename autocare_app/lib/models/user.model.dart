@@ -1,5 +1,7 @@
 import 'package:autocare_app/models/products.model.dart';
+import 'package:autocare_app/models/review.model.dart';
 import 'package:autocare_app/providers/products.dart';
+import 'package:autocare_app/providers/reviews.dart';
 import 'package:flutter/material.dart';
 
 class LoggedUser with ChangeNotifier {
@@ -9,6 +11,7 @@ class LoggedUser with ChangeNotifier {
   String email;
   bool subscription;
   List<dynamic> items;
+  List<Review> reviews;
 
   LoggedUser({
     required this.id,
@@ -17,6 +20,7 @@ class LoggedUser with ChangeNotifier {
     required this.email,
     required this.subscription,
     required this.items,
+    required this.reviews,
   });
 
   void saveUserData(Map json) {
@@ -27,6 +31,9 @@ class LoggedUser with ChangeNotifier {
     subscription = json["subscription"];
     items =
         json["items"].map((item) => ProductsProvider.fromJSON(item)).toList();
+    reviews = json["reviews"]
+        .map((review) => ReviewssProvider.fromJSON(review))
+        .toList();
 
     notifyListeners();
   }
