@@ -20,7 +20,8 @@ class _StoreHomePageState extends State<StoreHomePage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoggedUser>(builder: (context, value, child) {
-      List<dynamic> _products = value.items;
+      String storeId = value.id;
+      List<Product> _products = value.items;
 
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -41,12 +42,8 @@ class _StoreHomePageState extends State<StoreHomePage> {
                       print("Hello");
                     },
                     child: ProductCard(
-                      imgURL: "bmw.jpg",
-                      name: _products[index].name,
-                      made: _products[index].made,
-                      model: _products[index].model,
-                      year: _products[index].year,
-                      price: _products[index].price,
+                      storeId: storeId,
+                      productInfo: _products[index],
                     ),
                   );
                 },
