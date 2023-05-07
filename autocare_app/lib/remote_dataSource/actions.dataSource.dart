@@ -28,4 +28,21 @@ abstract class ActionsDataSource {
   static Future deleteProduct(storeId, productId) async {
     final body = {"user": storeId, "item": productId};
   }
+
+  static Future writeReview(storeId, customerId, content) async {
+    final body = {
+      "user": storeId,
+      "customer": customerId,
+      "review": content,
+    };
+    try {
+      final response = await sendRequest(
+          route: "/actions/writeReview",
+          load: body,
+          method: RequestMethods.POST);
+      return response.data;
+    } catch (err) {
+      print(err);
+    }
+  }
 }
