@@ -1,5 +1,8 @@
 import 'package:autocare_app/models/products.model.dart';
+import 'package:autocare_app/models/review.model.dart';
 import 'package:autocare_app/models/store.model.dart';
+import 'package:autocare_app/providers/products.dart';
+import 'package:autocare_app/providers/reviews.dart';
 import 'package:autocare_app/remote_dataSource/load.dataSource.dart';
 import 'package:flutter/foundation.dart';
 
@@ -29,10 +32,22 @@ class StoresProvider with ChangeNotifier {
   }
 
   Store fromJSON(Map json) {
+    final List<Product> parsedProducts = [];
+    final List<Review> parsedReviews = [];
+
+    json["items"].forEach((item) {
+      parsedProducts.add(ProductsProvider.fromJSON(item));
+    });
+
+    json["reviews"].forEach((item) {
+      parsedReviews.add(ReviewssProvider.fromJSON(item));
+    });
+
+    notifyListeners();
     return Store(
       name: json["name"],
-      products: [],
-      reviews: [],
+      products: parsedProducts,
+      reviews: parsedReviews,
       location: "Beirut",
       email: json["email"],
       id: json["_id"],
