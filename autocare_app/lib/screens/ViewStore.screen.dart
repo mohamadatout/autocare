@@ -1,8 +1,14 @@
+import 'package:autocare_app/models/user.model.dart';
 import 'package:autocare_app/providers/stores.dart';
+import 'package:autocare_app/remote_dataSource/actions.dataSource.dart';
+import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/DisplayCard.dart';
 import 'package:autocare_app/widgets/button.dart';
+import 'package:autocare_app/widgets/displayStoreProductCard.dart';
 import 'package:autocare_app/widgets/inputField.dart';
 import 'package:autocare_app/widgets/oneChat.dart';
+import 'package:autocare_app/widgets/productCard.dart';
+import 'package:autocare_app/widgets/reviewBanner.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +24,23 @@ class ViewStore extends StatefulWidget {
 
 class _ViewStoreState extends State<ViewStore> {
   var userReview = TextEditingController();
+
+  Future writeReview(context) async {
+    final String userId = Provider.of<LoggedUser>(context, listen: false).id;
+    await Provider.of<StoresProvider>(context, listen: false).writeReview(
+      widget.storeId,
+      userId,
+      userReview.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<StoresProvider>(
       builder: (context, value, child) {
         final store =
             value.stores.firstWhere((str) => str.id == widget.storeId);
+        final lastReview = store.reviews[store.reviews.length - 1];
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
@@ -54,7 +71,8 @@ class _ViewStoreState extends State<ViewStore> {
                         ),
                         Button(
                           onTap: () {
-                            print("View Location btn pressed");
+                            Navigator.of(context)
+                                .pushNamed(RouteManager.viewMap);
                           },
                           text: "View Location",
                           paddingVertical: 10,
@@ -121,14 +139,14 @@ class _ViewStoreState extends State<ViewStore> {
                                               height: 15,
                                             ),
                                             Button(
-                                                onTap: () {
-                                                  Navigator.pop(context);
-                                                  print(
-                                                      "Your review is submitted");
-                                                },
-                                                text: "Submit",
-                                                paddingVertical: 18,
-                                                paddingHorizantal: 20)
+                                              onTap: () {
+                                                writeReview(context);
+                                                Navigator.pop(context);
+                                              },
+                                              text: "Submit",
+                                              paddingVertical: 18,
+                                              paddingHorizantal: 20,
+                                            )
                                           ],
                                         ),
                                       );
@@ -158,13 +176,9 @@ class _ViewStoreState extends State<ViewStore> {
                           const SizedBox(
                             height: 5,
                           ),
-                          oneChat(
-                            name: "Mhmd Al Agha",
-                            lastMessage:
-                                "Honestly this is the best place that can detail your car",
-                            time: "3d",
-                            imgURL: "assets/google.png",
-                          ),
+                          ReviewBanner(
+                              name: lastReview.customer,
+                              review: lastReview.review)
                         ],
                       ),
                     ],
@@ -183,24 +197,24 @@ class _ViewStoreState extends State<ViewStore> {
                   SizedBox(
                     height: 20,
                   ),
-                  // Expanded(
-                  //   child: ListView.builder(
-                  //     physics: ScrollPhysics(),
-                  //     shrinkWrap: true,
-                  //     itemCount: value.items.length,
-                  //     itemBuilder: (context, index) {
-                  //       return GestureDetector(
-                  //         onTap: () {
-                  //           print("Hello");
-                  //         },
-                  //         child: ProductCard(
-                  //           storeId: storeId,
-                  //           productInfo: _products[index],
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // )
+                  Expanded(
+                    child: ListView.builder(
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: store.products.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            print("Hello");
+                          },
+                          child: StoreProductsDisplayCard(
+                            storeId: store.id,
+                            productInfo: store.products[index],
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
