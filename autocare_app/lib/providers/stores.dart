@@ -3,6 +3,7 @@ import 'package:autocare_app/models/review.model.dart';
 import 'package:autocare_app/models/store.model.dart';
 import 'package:autocare_app/providers/products.dart';
 import 'package:autocare_app/providers/reviews.dart';
+import 'package:autocare_app/remote_dataSource/actions.dataSource.dart';
 import 'package:autocare_app/remote_dataSource/load.dataSource.dart';
 import 'package:flutter/foundation.dart';
 
@@ -26,6 +27,26 @@ class StoresProvider with ChangeNotifier {
       stores = _stores;
 
       notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
+
+  Future writeReview(storeId, customerId, content) async {
+    try {
+      final res =
+          await ActionsDataSource.writeReview(storeId, customerId, content);
+
+      final selectedStore = stores.firstWhere((store) => store.id == storeId);
+
+      final newReview = res["reviews"][res["reviews"].length - 1];
+      final parsedReview = Review(
+        id: newReview["_id"],
+        customer: newReview["customer"]["name"],
+        review: newReview["review"],
+      );
+
+      selectedStore.reviews.add(parsedReview);
     } catch (err) {
       print(err);
     }
