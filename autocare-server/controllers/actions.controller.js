@@ -94,7 +94,6 @@ exports.writeReview = async (req, res) => {
 	const { user, customer, review } = req.body;
 
 	const store = await User.findById(user);
-	console.log(store);
 
 	store.reviews.push({
 		customer,
@@ -102,7 +101,15 @@ exports.writeReview = async (req, res) => {
 	});
 
 	await store.save();
-	res.json(store);
+
+	const updated = await User.findById(user)
+		.populate({
+			path: "reviews.customer",
+			model: "User",
+			select: "name",
+		})
+		.exec();
+	res.json(updated);
 };
 
 exports.getReviews = async (req, res) => {
