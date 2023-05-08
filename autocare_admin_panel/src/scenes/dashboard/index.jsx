@@ -9,10 +9,18 @@ import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBoc";
 import PieChart from "../../components/Pie";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllUsers } from "../../features/user/actions";
 
 const Dashboard = () => {
+	const dispatch = useDispatch();
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
+	useEffect(() => {
+		dispatch(fetchAllUsers());
+	}, []);
+	const users = useSelector((state) => state.users);
 
 	return (
 		<Box m="20px">
@@ -35,7 +43,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="20"
+						title={users.counters.stores + users.counters.customers}
 						subtitle="All Users"
 						icon={
 							<Groups3Icon
@@ -51,7 +59,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="20"
+						title={users.counters.customers}
 						subtitle="Customers"
 						icon={
 							<PersonIcon
@@ -67,7 +75,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="50"
+						title={users.counters.stores}
 						subtitle="Stores"
 						icon={
 							<StorefrontIcon
@@ -83,7 +91,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="33"
+						title={users.counters.subscribed}
 						subtitle="Subscribed Stores"
 						icon={
 							<CheckIcon
@@ -99,7 +107,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="17"
+						title={users.counters.unsubscribed}
 						subtitle="Unsubscribed Stores"
 						icon={
 							<CloseIcon
