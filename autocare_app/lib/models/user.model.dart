@@ -13,6 +13,7 @@ class LoggedUser with ChangeNotifier {
   bool subscription;
   List<Product> items;
   List<Review> reviews;
+  List<Product> favourites;
 
   LoggedUser({
     required this.id,
@@ -22,11 +23,13 @@ class LoggedUser with ChangeNotifier {
     required this.subscription,
     required this.items,
     required this.reviews,
+    required this.favourites,
   });
 
   void saveUserData(Map json) {
     final List<Product> parsedProducts = [];
     final List<Review> parsedReviews = [];
+    final List<Product> parsedFavourites = [];
 
     json["items"].forEach((item) {
       parsedProducts.add(ProductsProvider.fromJSON(item));
@@ -36,6 +39,10 @@ class LoggedUser with ChangeNotifier {
       parsedReviews.add(ReviewssProvider.fromJSON(item));
     });
 
+    json["favourites"].forEach((item) {
+      parsedFavourites.add(ProductsProvider.fromJSON(item));
+    });
+
     id = json["_id"];
     type = json["type"];
     name = json["name"];
@@ -43,6 +50,7 @@ class LoggedUser with ChangeNotifier {
     subscription = json["subscription"];
     items = parsedProducts;
     reviews = parsedReviews;
+    favourites = parsedFavourites;
 
     notifyListeners();
   }
@@ -81,6 +89,23 @@ class LoggedUser with ChangeNotifier {
       final newProduct = res["item"];
       final parsedProduct = ProductsProvider.fromJSON(newProduct);
       items.add(parsedProduct);
+
+      notifyListeners();
+    } catch (err) {
+      print(err);
+    }
+  }
+
+  Future favAddRemove(storeId, productId) async {
+    List<Product> _favourites = [];
+    try {
+      final res = await ActionsDataSource.favAddRemover(storeId, id, productId);
+
+      res["user"]["favourites"].forEach((item) {
+        _favourites.add(ProductsProvider.fromJSON(item));
+      });
+
+      favourites = _favourites;
 
       notifyListeners();
     } catch (err) {
