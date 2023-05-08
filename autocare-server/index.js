@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 require("dotenv").config();
 app.use(express.json());
+app.use(cors());
 
 const { adminMiddleware } = require("./middlewares/admin.middleware");
 const { storeAuthMiddleware } = require("./middlewares/storeAuth.middleware");
