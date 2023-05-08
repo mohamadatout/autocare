@@ -32,7 +32,7 @@ export const userReducer = (state = initstate, action) => {
 				...state,
 				loading: false,
 				data: payload.users,
-				couters: payload.counters,
+				counters: payload.counters,
 			};
 
 		case FETCHUSERSERROR:
