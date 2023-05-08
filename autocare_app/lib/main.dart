@@ -9,8 +9,11 @@ import 'package:autocare_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:autocare_app/screens/Login.screen.dart';
 import 'package:provider/provider.dart';
+// import 'package:firebase_core/firebase_core.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -46,13 +49,15 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider.value(
           value: LoggedUser(
-              id: "",
-              type: "",
-              name: "",
-              email: "",
-              subscription: false,
-              items: [],
-              reviews: []),
+            id: "",
+            type: "",
+            name: "",
+            email: "",
+            subscription: false,
+            items: [],
+            reviews: [],
+            favourites: [],
+          ),
         ),
         ChangeNotifierProvider.value(
           value: ProductsProvider(products: []),
