@@ -1,5 +1,6 @@
 import 'package:autocare_app/screens/Chats.screen.dart';
 import 'package:autocare_app/screens/Login.screen.dart';
+import 'package:autocare_app/screens/Map.screen.dart';
 import 'package:autocare_app/screens/Messages.screen.dart';
 import 'package:autocare_app/screens/Profile.screen.dart';
 import 'package:autocare_app/screens/Signup.screen.dart';
@@ -23,6 +24,7 @@ abstract class RouteManager {
   static const String viewStore = "/viewStore";
   static const String favourites = "/favourites";
   static const String viewFavourites = "/viewFavourites";
+  static const String viewMap = "/viewMap";
 
   static const String storeMainScreen = "/storeHomePage";
   static const String addItem = "/additem";
@@ -64,10 +66,11 @@ abstract class RouteManager {
             storeId: (settings.arguments as Map)["storeId"],
           ),
         );
-      // case :
-      //   return MaterialPageRoute(
-      //     builder: (context) => ,
-      //   );
+
+      case viewMap:
+        return MaterialPageRoute(
+          builder: (context) => MapScreen(),
+        );
       // case :
       //   return MaterialPageRoute(
       //     builder: (context) => ,
