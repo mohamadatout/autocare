@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "252188317349",
+    "project_id": "autocare-385419",
+    "storage_bucket": "autocare-385419.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252188317349:android:ee40dbda6d4cccc5061f4c",
+        "android_client_info": {
+          "package_name": "com.example.autocare_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252188317349-jnto8uboj2i3d8i91ccft6e4op3mns91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXv4b3_lNXO5drm-JjPeSEkIZd9OSnU8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252188317349-4d9n1evc7oju08m1u4skbra7i6oo1p08.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "252188317349-t17eeh0kilu2qjprdm082sn6dbfvhvt1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.autocareApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
