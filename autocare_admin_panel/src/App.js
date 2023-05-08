@@ -5,7 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./scenes/dashboard";
 import Customer from "./scenes/users/customer";
-import AllUsers from "./scenes/users/allUsers";
+import AllUsers from "./scenes/users/allUsers/index.js";
 import Stores from "./scenes/users/stores";
 import Form from "./scenes/addStoreForm";
 
