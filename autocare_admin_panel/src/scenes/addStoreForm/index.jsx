@@ -5,37 +5,16 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createStore } from "../../features/user/actions";
 
 const Form = () => {
+	const dispatch = useDispatch();
 	const isNonMobile = useMediaQuery("(min-width:600px)");
 
 	const handleFormSubmit = async (values) => {
-		var newStore = new FormData();
-		newStore.append("name", values.name);
-		newStore.append("email", values.email);
-		newStore.append("password", values.password);
-		console.log(newStore);
-		console.log(values.name);
-		const agha = newStore.get("email");
-		console.log(agha);
-		try {
-			const response = await axios({
-				method: "post",
-				url: "http://localhost:8000/admin/newStore",
-				data: {
-					name: values.name,
-					password: values.password,
-					email: values.email,
-				},
-			});
-			console.log(values);
-			const data = response;
-		} catch (error) {
-			console.log(error);
-		}
-		console.log(values);
+		dispatch(createStore(values));
 	};
-
 	return (
 		<Box m="20px">
 			<Header title="CREATE STORE" subtitle="Create a New Store Account" />
