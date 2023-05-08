@@ -28,6 +28,11 @@ exports.newStore = async (req, res) => {
 	res.status(201).json(newStore);
 };
 
+exports.getAllUsers = async (req, res) => {
+	const users = await User.find();
+	res.json(users);
+};
+
 exports.changeSubscription = async (req, res) => {
 	const { _id } = req.body;
 
