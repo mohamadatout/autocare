@@ -1,6 +1,4 @@
 import 'package:autocare_app/widgets/oneChat.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 
 class ChatsScreen extends StatefulWidget {
@@ -13,22 +11,22 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   List<Map> chats = [
     {
-      "name": "Mhmd Al Agha",
-      "lastMessage": "Hii",
+      "name": "Nour Garage",
+      "lastMessage": "Okay deal",
       "time": "15 min",
-      "imgURL": "assets/google.png",
+      "imgURL": "assets/bmw.jpg",
     },
     {
-      "name": "Mhmd Al Agha",
-      "lastMessage": "Hii",
-      "time": "15 min",
-      "imgURL": "assets/google.png",
+      "name": "Mhmd Atout Store",
+      "lastMessage": "No worries",
+      "time": "1 hr",
+      "imgURL": "assets/bmw.jpg",
     },
     {
-      "name": "Mhmd Al Agha",
-      "lastMessage": "Hii",
-      "time": "15 min",
-      "imgURL": "assets/google.png",
+      "name": "Taha Garage",
+      "lastMessage": "How much does it cost ?",
+      "time": "2 d",
+      "imgURL": "assets/bmw.jpg",
     },
   ];
   @override
