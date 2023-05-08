@@ -46,9 +46,10 @@ abstract class ActionsDataSource {
     };
     try {
       final response = await sendRequest(
-          route: "/actions/writeReview",
-          load: body,
-          method: RequestMethods.POST);
+        route: "/actions/writeReview",
+        load: body,
+        method: RequestMethods.POST,
+      );
       return response.data;
     } catch (err) {
       print(err);
