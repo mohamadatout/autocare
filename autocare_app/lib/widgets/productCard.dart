@@ -1,10 +1,5 @@
-// import 'dart:html';
-// import 'dart:js';
-
 import 'package:autocare_app/models/products.model.dart';
 import 'package:autocare_app/models/user.model.dart';
-import 'package:autocare_app/providers/products.dart';
-import 'package:autocare_app/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
