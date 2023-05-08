@@ -28,9 +28,14 @@ class _oneChatState extends State<oneChat> {
       onTap: () {
         Navigator.of(context).pushNamed(RouteManager.messages);
       },
-      leading: Image.asset(
-        widget.imgURL,
-        height: 40,
+      leading: ClipOval(
+        // borderRadius: BorderRadius.circular(50),
+        child: Image.asset(
+          widget.imgURL,
+          // height: 40,
+          width: 50,
+          fit: BoxFit.cover,
+        ),
       ),
       title: Text(widget.name),
       subtitle: Text(widget.lastMessage),
