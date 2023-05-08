@@ -1,4 +1,5 @@
 import 'package:autocare_app/screens/Chats.screen.dart';
+import 'package:autocare_app/screens/Favourites.screen.dart';
 import 'package:autocare_app/screens/Profile.screen.dart';
 import 'package:autocare_app/widgets/store.bottomNavbar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -18,6 +19,7 @@ class _UserMainScreenState extends State<UserMainScreen> {
   List pages = [
     UserHomeScreen(),
     ChatsScreen(),
+    FavouriteScreen(),
     ProfilePage(),
   ];
 
@@ -26,7 +28,7 @@ class _UserMainScreenState extends State<UserMainScreen> {
   final bottomNavBarItems = <Widget>[
     Icon(Icons.home, color: Colors.white),
     Icon(Icons.message, color: Colors.white),
-    // Icon(Icons.favorite, color: Colors.white),
+    Icon(Icons.favorite, color: Colors.white),
     Icon(Icons.person, color: Colors.white),
   ];
 
@@ -41,7 +43,9 @@ class _UserMainScreenState extends State<UserMainScreen> {
               ? "Home"
               : index == 1
                   ? "Chats"
-                  : "Profile",
+                  : index == 2
+                      ? "Favourites"
+                      : "Profile",
           style: TextStyle(color: Colors.black),
         ),
       ),
