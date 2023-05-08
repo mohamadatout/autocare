@@ -32,7 +32,7 @@ export const fetchAllUsers = () => {
 	return (dispatch) => {
 		dispatch(fetchUsers());
 		axios
-			.get("http://127.0.0.1:8000/admin/getUsers")
+			.get("http://127.0.0.1:8000/admin/getAllUsers")
 			.then((res) => {
 				const counter = {
 					customers: 0,
@@ -42,16 +42,19 @@ export const fetchAllUsers = () => {
 				};
 				const users = res.data;
 				users.forEach((user) => {
+					console.log(user);
 					user.id = nanoid();
 					if (user.type === "customer") {
 						counter.customers++;
 					} else if (user.type === "user") {
 						counter.stores++;
 					}
-					if (user.subscription) {
-						counter.subscribed++;
-					} else {
-						counter.unsubscribed++;
+					if (user.type == "user") {
+						if (user.subscription) {
+							counter.subscribed++;
+						} else {
+							counter.unsubscribed++;
+						}
 					}
 				});
 				dispatch(usersSuccess(res.data, counter));
