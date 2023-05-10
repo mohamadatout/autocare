@@ -63,7 +63,8 @@ class _ViewStoreState extends State<ViewStore> {
                       children: [
                         Button(
                           onTap: () {
-                            print("Message btn pressed");
+                            Navigator.of(context)
+                                .pushNamed(RouteManager.messages);
                           },
                           text: "Message",
                           paddingVertical: 10,
