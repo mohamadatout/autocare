@@ -19,8 +19,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
       appBar: AppBar(
         leading: BackButton(color: Colors.black),
         title: const Text(
-          "Mhmd Al Agha",
-          style: TextStyle(color: Colors.black),
+          "Nour's Workshop",
+          style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         elevation: 0,
         backgroundColor: Colors.white,
