@@ -10,6 +10,7 @@ class LoggedUser with ChangeNotifier {
   String type;
   String name;
   String email;
+  String image;
   bool subscription;
   List<Product> items;
   List<Review> reviews;
@@ -20,6 +21,7 @@ class LoggedUser with ChangeNotifier {
     required this.type,
     required this.name,
     required this.email,
+    required this.image,
     required this.subscription,
     required this.items,
     required this.reviews,
@@ -47,6 +49,7 @@ class LoggedUser with ChangeNotifier {
     type = json["type"];
     name = json["name"];
     email = json["email"];
+    image = json["image"];
     subscription = json["subscription"];
     items = parsedProducts;
     reviews = parsedReviews;
