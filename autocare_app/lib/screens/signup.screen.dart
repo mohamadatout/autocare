@@ -1,6 +1,8 @@
 import 'package:autocare_app/remote_dataSource/auth.dataDource.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -15,18 +17,38 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  final _firebase = FirebaseAuth.instance;
+
   var nameInput = TextEditingController();
   var emailInput = TextEditingController();
   var passwordInput = TextEditingController();
   var confirmPasswordInput = TextEditingController();
   void signUserUp() async {
     try {
+      //
+      final firebaseUser = await _firebase.createUserWithEmailAndPassword(
+          email: emailInput.text, password: passwordInput.text);
+
       await AuthDataSource.register(
-          nameInput.text, emailInput.text, passwordInput.text);
+          nameInput.text, emailInput.text, passwordInput.text, context);
+
+      //
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(emailInput.text)
+          .set({"email": emailInput.text});
+
+      //
+      Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
     } catch (err) {
       print(err);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content:
+              Text("This email is already registered with another account."),
+        ),
+      );
     }
-    Navigator.of(context).popAndPushNamed(RouteManager.storeMainScreen);
   }
 
   @override
@@ -150,7 +172,6 @@ class _SignupState extends State<Signup> {
                   GestureDetector(
                     onTap: () async {
                       final user = await AuthDataSource.googlelogin();
-                      print(user);
 
                       Navigator.of(context)
                           .popAndPushNamed(RouteManager.userMainScreen);
