@@ -28,11 +28,11 @@ class _oneChatState extends State<oneChat> {
       onTap: () {
         Navigator.of(context).pushNamed(RouteManager.messages);
       },
-      leading: ClipOval(
-        // borderRadius: BorderRadius.circular(50),
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(1000),
         child: Image.asset(
           widget.imgURL,
-          // height: 40,
+          height: 50,
           width: 50,
           fit: BoxFit.cover,
         ),
