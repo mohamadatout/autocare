@@ -27,6 +27,29 @@ exports.register = async (req, res) => {
 	res.status(201).json(newUser);
 };
 
+exports.googleRegister = async (req, res) => {
+	const { name, email, password, type } = req.body;
+
+	const existingUser = await User.findOne({ email });
+	if (existingUser) {
+		return res.status(409).json({
+			message: "Email already associated with another account",
+		});
+	}
+
+	const user = new User();
+	user.name = name;
+	user.email = email;
+	const hashedPassword = await bcrypt.hash("withgoogle", 10);
+	user.password = hashedPassword;
+	if (type) user.type = type;
+
+	await user.save();
+
+	const { password: newPassword, ...newUser } = user.toJSON();
+	res.status(201).json(newUser);
+};
+
 exports.login = async (req, res) => {
 	const { email, password } = req.body;
 	const user = await User.findOne({ email });
@@ -42,5 +65,22 @@ exports.login = async (req, res) => {
 		process.env.SECRET_KEY
 	);
 
+	res.json({ token, user });
+};
+
+exports.googleLogin = async (req, res) => {
+	const { email } = req.body;
+	const user = await User.findOne({ email });
+
+	if (!user) return res.status(404).json({ message: "Invalid Credentials" });
+
+	const token = jwt.sign(
+		{
+			id: user._id,
+			name: user.name,
+			type: user.type,
+		},
+		process.env.SECRET_KEY
+	);
 	res.json({ token, user });
 };
