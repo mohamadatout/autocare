@@ -1,6 +1,7 @@
 import 'package:autocare_app/remote_dataSource/auth.dataDource.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/contnueWithTile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _firebase = FirebaseAuth.instance;
   var emailInput = TextEditingController();
   var passwordInput = TextEditingController();
 
@@ -23,6 +25,8 @@ class _LoginState extends State<Login> {
       final userType = await AuthDataSource.login(
           emailInput.text, passwordInput.text, context);
       if (userType != null) {
+        _firebase.signInWithEmailAndPassword(
+            email: emailInput.text, password: passwordInput.text);
         if (userType == "customer") {
           Navigator.of(context).popAndPushNamed(RouteManager.userMainScreen);
         } else {
@@ -30,7 +34,12 @@ class _LoginState extends State<Login> {
         }
       }
     } catch (err) {
-      print(err);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content:
+              Text("This email is already registered with another account."),
+        ),
+      );
     }
   }
 
@@ -147,9 +156,20 @@ class _LoginState extends State<Login> {
 
                   const SizedBox(height: 30),
 
-                  const continueWith(
-                    imgPath: "assets/google.png",
-                    withApp: "Google",
+                  GestureDetector(
+                    onTap: () async {
+                      final user = await AuthDataSource.googlelogin();
+                      print(user);
+
+                      if (user != null) {
+                        Navigator.of(context)
+                            .popAndPushNamed(RouteManager.userMainScreen);
+                      }
+                    },
+                    child: const continueWith(
+                      imgPath: "assets/google.png",
+                      withApp: "Google",
+                    ),
                   ),
 
                   const SizedBox(height: 50),
