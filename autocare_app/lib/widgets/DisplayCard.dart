@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -27,8 +29,8 @@ class DisplayCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              imgURL,
+            child: Image.memory(
+              base64Decode(imgURL),
               width: imgWidth,
               height: imgHeight,
               fit: BoxFit.cover,

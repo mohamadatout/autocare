@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:autocare_app/models/products.model.dart';
 import 'package:autocare_app/models/user.model.dart';
 import 'package:autocare_app/providers/products.dart';
@@ -96,8 +98,8 @@ class _StoreProductsDisplayCardState extends State<StoreProductsDisplayCard> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        "assets/bmw.jpg",
+                      child: Image.memory(
+                        base64Decode(widget.productInfo.image),
                         fit: BoxFit.cover,
                         width: 120,
                         height: 120,
