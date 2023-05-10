@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:autocare_app/models/user.model.dart';
+import 'package:autocare_app/remote_dataSource/auth.dataDource.dart';
 import 'package:autocare_app/routes/routes.dart';
 import 'package:autocare_app/widgets/button.dart';
 import 'package:autocare_app/widgets/store.bottomNavbar.dart';
@@ -34,6 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void signUserout() {
+    AuthDataSource.logout();
     Navigator.of(context).popAndPushNamed(RouteManager.login);
     print("User signed out");
   }
