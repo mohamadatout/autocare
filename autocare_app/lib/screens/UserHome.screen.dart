@@ -58,7 +58,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                             },
                             child: DisplayCard(
                               text: _stores[index].name,
-                              imgURL: "assets/bmw.jpg",
+                              imgURL: _stores[index].image,
                               imgHeight: 150,
                               imgWidth: MediaQuery.of(context).size.width,
                               containerHeight:

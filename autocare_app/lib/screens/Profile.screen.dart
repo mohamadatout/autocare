@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:autocare_app/models/user.model.dart';
@@ -52,8 +53,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      "assets/bmw.jpg",
+                    child: Image.memory(
+                      base64Decode(value.image),
                       fit: BoxFit.cover,
                       width: 120,
                       height: 120,
