@@ -66,6 +66,7 @@ const userSchema = new mongoose.Schema({
 	},
 	image: {
 		type: String,
+		default: "",
 	},
 	favourites: {
 		type: Array,
