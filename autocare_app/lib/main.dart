@@ -6,14 +6,18 @@ import 'package:autocare_app/providers/products.dart';
 import 'package:autocare_app/providers/stores.dart';
 import 'package:autocare_app/providers/theme.dart';
 import 'package:autocare_app/routes/routes.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:autocare_app/screens/Login.screen.dart';
 import 'package:provider/provider.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -28,11 +32,19 @@ class _MyAppState extends State<MyApp> {
   bool _isLoggedIn = false;
   bool _isDark = false;
 
+  void setupPushNotifications() async {
+    final fcm = FirebaseMessaging.instance;
+    await fcm.requestPermission();
+    final token = await fcm.getToken();
+    print(token);
+  }
+
   void loggedInChecker() async {
     final token = await getLocal(type: LocalTypes.String, key: "access_token");
 
     setState(() {
       _isLoggedIn = (token != null);
+      setupPushNotifications();
     });
   }
 
@@ -53,6 +65,7 @@ class _MyAppState extends State<MyApp> {
             type: "",
             name: "",
             email: "",
+            image: "",
             subscription: false,
             items: [],
             reviews: [],
