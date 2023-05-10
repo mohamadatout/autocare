@@ -147,8 +147,17 @@ class _SignupState extends State<Signup> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const continueWith(
-                      imgPath: "assets/google.png", withApp: "Google"),
+                  GestureDetector(
+                    onTap: () async {
+                      final user = await AuthDataSource.googlelogin();
+                      print(user);
+
+                      Navigator.of(context)
+                          .popAndPushNamed(RouteManager.userMainScreen);
+                    },
+                    child: const continueWith(
+                        imgPath: "assets/google.png", withApp: "Google"),
+                  ),
                   const SizedBox(height: 25),
                   RichText(
                     text: TextSpan(
