@@ -1,11 +1,40 @@
 import 'package:autocare_app/widgets/button.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:autocare_app/widgets/inputField.dart';
 
-class SendMesssageBar extends StatelessWidget {
-  var messageController = TextEditingController();
-  // const SendMesssageBar({super.key});
+class SendMesssageBar extends StatefulWidget {
+  @override
+  State<SendMesssageBar> createState() => _SendMesssageBarState();
+}
+
+class _SendMesssageBarState extends State<SendMesssageBar> {
+  final _messageController = TextEditingController();
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
+  }
+
+  void submitMessage() {
+    final enteredText = _messageController.text;
+    if (enteredText.trim().isEmpty) {
+      return;
+    }
+    FocusScope.of(context).unfocus();
+
+    final user = FirebaseAuth.instance.currentUser!;
+
+    FirebaseFirestore.instance.collection("chat").add({
+      "text": enteredText,
+      "createdAt": Timestamp.now(),
+      "userId": user.uid,
+    });
+
+    _messageController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +49,10 @@ class SendMesssageBar extends StatelessWidget {
           color: Colors.transparent,
           child: Row(
             children: <Widget>[
-              const Expanded(
+              Expanded(
                 child: TextField(
-                  decoration: InputDecoration(
+                  controller: _messageController,
+                  decoration: const InputDecoration(
                     hintText: "Write message...",
                     hintStyle: TextStyle(color: Colors.black54),
                     border: OutlineInputBorder(
@@ -35,7 +65,9 @@ class SendMesssageBar extends StatelessWidget {
                 width: 10,
               ),
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  submitMessage();
+                },
                 child: Icon(
                   Icons.send,
                   color: Colors.white,
