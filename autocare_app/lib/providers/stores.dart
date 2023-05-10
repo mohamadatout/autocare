@@ -66,12 +66,13 @@ class StoresProvider with ChangeNotifier {
 
     notifyListeners();
     return Store(
+      id: json["_id"],
       name: json["name"],
+      email: json["email"],
+      image: json["image"],
+      location: "Beirut",
       products: parsedProducts,
       reviews: parsedReviews,
-      location: "Beirut",
-      email: json["email"],
-      id: json["_id"],
     );
   }
 }
