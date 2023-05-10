@@ -30,7 +30,7 @@ abstract class AuthDataSource {
     }
   }
 
-  static Future register(name, email, password) async {
+  static Future register(name, email, password, context) async {
     try {
       final body = {
         "name": name,
@@ -41,6 +41,9 @@ abstract class AuthDataSource {
       print(body);
       final response = await dioClient.post("/auth/register", data: body);
       print(response);
+
+      Provider.of<LoggedUser>(context, listen: false)
+          .saveUserData(response.data["user"]);
     } catch (error) {
       print(error);
     }
@@ -52,5 +55,39 @@ abstract class AuthDataSource {
 
   static Future logout() async {
     _googleSignIn.signOut();
+  }
+
+  static Future googleRegister(name, email) async {
+    try {
+      final body = {"name": name, "email": email};
+      final response = await dioClient.post("/auth/googleRegister", data: body);
+      print(response);
+    } catch (err) {
+      print(err);
+    }
+  }
+
+  static Future googleLogin(email, context) async {
+    try {
+      final body = {
+        "email": email,
+      };
+      print(body);
+      final response =
+          await sendRequest(route: "/auth/googleLogin", load: body);
+      print(response.data);
+
+      setLocal(
+          type: LocalTypes.String, key: "access_token", value: response.data);
+
+      Provider.of<LoggedUser>(context, listen: false)
+          .saveUserData(response.data["user"]);
+
+      return response.data["user"]["type"] == "customer" ? "customer" : "store";
+    } catch (error) {
+      print(
+        error.toString(),
+      );
+    }
   }
 }
