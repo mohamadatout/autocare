@@ -128,9 +128,19 @@
 | ------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------- |
 | ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) |
 
-| Write Revirew                                                 | View on Maps                                      |
-| ------------------------------------------------------------- | ------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/write%20review.gif) | ![fsdaf](./readme_assets/implementation/maps.gif) |
+- Admin Panel
+
+| Dashboard                                                        | Dark-Light Theme                                            |
+| ---------------------------------------------------------------- | ----------------------------------------------------------- |
+| ![fsdaf](./readme_assets/adminPanel/viewcharts_AdobeExpress.gif) | ![fsdaf](./readme_assets/adminPanel/theme_AdobeExpress.gif) |
+
+| Manage Stores                                     | Manage Customers                                                  |
+| ------------------------------------------------- | ----------------------------------------------------------------- |
+| ![fsdaf](./readme_assets/adminPanel/IMG_5257.jpg) | ![fsdaf](./readme_assets/adminPanel/manageUsers_AdobeExpress.gif) |
+
+| Admin Panel Sidebar                                            | Add new Store                                                     |
+| -------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![fsdaf](./readme_assets/adminPanel/Sidebarr_AdobeExpress.gif) | ![fsdaf](./readme_assets/adminPanel/addNewStore_AdobeExpress.gif) |
 
 <br><br>
 
