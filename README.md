@@ -41,33 +41,29 @@
 
 - Authentication
 
-| Loading Screen                               | Login Screen                             | Register Screen                              |
-| -------------------------------------------- | ---------------------------------------- | -------------------------------------------- |
-| ![Landing](./readme_assets/demo/Landing.png) | ![fsdaf](./readme_assets/demo/Login.png) | ![fsdaf](./readme_assets/demo/Sign%20up.png) |
+| Loading Screen                                     | Login Screen                                   | Register Screen                                    |
+| -------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- |
+| ![Landing](./readme_assets/wireframes/Landing.png) | ![fsdaf](./readme_assets/wireframes/Login.png) | ![fsdaf](./readme_assets/wireframes/Sign%20up.png) |
 
 - Store Screens
 
-| Store - Landing Screen                                      | Store - Chats Screen                                | Store - Messages Screen                                |
-| ----------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------ |
-| ![Landing](./readme_assets/demo/User%20-%20All%20items.png) | ![fsdaf](./readme_assets/demo/User%20-%20Chats.png) | ![fsdaf](./readme_assets/demo/User%20-%20Messages.png) |
+| Store - Landing Screen                                            | Store - Chats Screen                                      | Store - Messages Screen                                      |
+| ----------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+| ![Landing](./readme_assets/wireframes/User%20-%20All%20items.png) | ![fsdaf](./readme_assets/wireframes/User%20-%20Chats.png) | ![fsdaf](./readme_assets/wireframes/User%20-%20Messages.png) |
 
-| Store - Profile Screen                                  | Store - Add Item Screen                                  |
-| ------------------------------------------------------- | -------------------------------------------------------- |
-| ![Landing](./readme_assets/demo/User%20-%20Profile.png) | ![fsdaf](./readme_assets/demo/User%20-%20Add%20item.png) |
+| Store - Profile Screen                                        | Store - Add Item Screen                                        |
+| ------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![Landing](./readme_assets/wireframes/User%20-%20Profile.png) | ![fsdaf](./readme_assets/wireframes/User%20-%20Add%20item.png) |
 
 - Customer Screens
 
-| Home Screen                                              | View Store Screen                                                | Favoutites Screen                                           |
-| -------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------- |
-| ![Landing](./readme_assets/demo/Customer%20-%20Home.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20View%20Worshop.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20Favorites.png) |
+| Home Screen                                                    | View Store Screen                                                      | Favoutites Screen                                                  |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| ![Landing](./readme_assets/wireframes/Customer%20-%20Home.png) | ![fsdaf](./readme_assets/wireframes/Customer%20-%20View%20Worshop.png) | ![fsdaf](./readme_assets/wireframes/Customer%20-%20Favoutites.png) |
 
-| Chats Screen                                              | Messages Screen                                            | Profile Screen                                            |
-| --------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------- |
-| ![Landing](./readme_assets/demo/Customer%20-%20Chats.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20Messages.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20Profile.png) |
-
-| Maps Screen                                                             |
-| ----------------------------------------------------------------------- |
-| ![Landing](./readme_assets/demo/Customer%20-%20Workshop%20location.png) |
+| Chats Screen                                                    | Messages Screen                                                  | Profile Screen                                                  |
+| --------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![Landing](./readme_assets/wireframes/Customer%20-%20Chats.png) | ![fsdaf](./readme_assets/wireframes/Customer%20-%20Messages.png) | ![fsdaf](./readme_assets/wireframes/Customer%20-%20Profile.png) |
 
 ### Mockups
 
@@ -97,9 +93,9 @@
 | --------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------- |
 | ![Landing](./readme_assets/demo/Customer%20-%20Chats.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20Messages.png) | ![fsdaf](./readme_assets/demo/Customer%20-%20Profile.png) |
 
-| Maps Screen                                                             |
-| ----------------------------------------------------------------------- |
-| ![Landing](./readme_assets/demo/Customer%20-%20Workshop%20location.png) |
+| Maps Screen                                                           |
+| --------------------------------------------------------------------- |
+| ![fsdaf](./readme_assets/demo/Customer%20-%20Workshop%20location.png) |
 
 <br><br>
 
@@ -112,15 +108,15 @@
 
 - Authentication
 
-| Login Screen                                         | Register Screen                                     | Google Screen                                        |
-| ---------------------------------------------------- | --------------------------------------------------- | ---------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/login.png) | ![fsdaf](./readme_assets/implementation/signup.png) | ![fsdaf](./readme_assets/implementation/googles.png) |
+| Login Screen                                         | Register Screen                                               | Google Screen                                                                |
+| ---------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/login.png) | ![fsdaf](./readme_assets/implementation/signupvalidation.gif) | ![fsdaf](./readme_assets/implementation/continueWithGoogle_AdobeExpress.gif) |
 
 - Store Screens
 
-| Store - Landing Screen                                    | Store - Chats Screen                                     | Store - Messages Screen                                     |
-| --------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/store-home.png) | ![fsdaf](./readme_assets/implementation/store-chats.png) | ![fsdaf](./readme_assets/implementation/store-messages.png) |
+| Store - Delete Products                                   | Store - Chats Screen                                     | Store - Messages Screen                                    |
+| --------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/deleteItem.gif) | ![fsdaf](./readme_assets/implementation/store-chats.png) | ![fsdaf](./readme_assets/implementation/Store-Message.gif) |
 
 | Store - Profile Screen                                       | Store - Add Item Screen                                    |
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
@@ -128,17 +124,13 @@
 
 - Customer Screens
 
-| Home Screen                                         | View Store Screen                                               | Favoutites Screen                                                |
-| --------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/customer) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/customer-favourites.png) |
+| Home Screen                                                  | View Store Screen                                               | Favoutites Screen                                         |
+| ------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) |
 
-| Chats Screen                                | Messages Screen                                              | Profile Screen                                                |
-| ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/) | ![fsdaf](./readme_assets/implementation/customer-Chats.pngg) | ![fsdaf](./readme_assets/implementation/customer-profile.png) |
-
-| Maps Screen                                                  |
-| ------------------------------------------------------------ |
-| ![Landing](./readme_assets/implementation/customer-maps.png) |
+| Write Revirew                                                 | View on Maps                                      |
+| ------------------------------------------------------------- | ------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/write%20review.gif) | ![fsdaf](./readme_assets/implementation/maps.gif) |
 
 <br><br>
 
