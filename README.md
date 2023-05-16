@@ -151,7 +151,7 @@
 
 ### AutoCare is built using the following technologies:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/) and [React](https://react.dev/) for the web admin panel.
+- This project uses the [Flutter](https://flutter.dev/) app development framework and [React](https://react.dev/) for the web admin panel.
 - [Flutter](https://flutter.dev/) is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
 - [React](https://react.dev/) is used to build single-page applications, and allows us to create reusable UI components. It lets you build user interfaces out of individual pieces called components.
 - The app uses [Node.js](https://nodejs.org/en) for the backend. Node.js is a JavaScript runtime environment that allow running JavaScript code outside of a browser. Node.js is designed to build scalable network applications. Using [Express.js](https://expressjs.com/) which is a web application framework for Node.js. It provides a robust set of features to develop web and mobile applications.
