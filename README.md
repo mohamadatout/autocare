@@ -126,9 +126,9 @@
 
 - Customer Screens
 
-| Home Screen                                                  | View Store Screen                                               | Favoutites Screen                                         |
-| ------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) |
+| Home Screen                                                  | View Store Screen                                               | Favoutites Screen                                         | Maps Screen                                       |
+| ------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) | ![fsdaf](./readme_assets/implementation/maps.gif) |
 
 - Admin Panel
 
