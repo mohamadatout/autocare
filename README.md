@@ -108,27 +108,17 @@
 
 ### User Screens (Mobile)
 
-- Authentication
+| Login Screen                                         | Register Screen                                               | Live Message                                               |
+| ---------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/login.png) | ![fsdaf](./readme_assets/implementation/signupvalidation.gif) | ![fsdaf](./readme_assets/implementation/Store-Message.gif) |
 
-| Login Screen                                         | Register Screen                                               | Continue with Google                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/login.png) | ![fsdaf](./readme_assets/implementation/signupvalidation.gif) | ![fsdaf](./readme_assets/implementation/continueWithGoogle_AdobeExpress.gif) |
+| Store - Profile Screen                                       | Store - Chats Screen                                     | Favourite Screen                                          |
+| ------------------------------------------------------------ | -------------------------------------------------------- | --------------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/store-profile.png) | ![fsdaf](./readme_assets/implementation/store-chats.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) |
 
-- Store Screens
-
-| Store - Delete Products                                   | Store - Chats Screen                                     | Store - Messages Screen                                    |
-| --------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/deleteItem.gif) | ![fsdaf](./readme_assets/implementation/store-chats.png) | ![fsdaf](./readme_assets/implementation/Store-Message.gif) |
-
-| Store - Profile Screen                                       | Store - Add Item Screen                                    |
-| ------------------------------------------------------------ | ---------------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/store-profile.png) | ![fsdaf](./readme_assets/implementation/store-addItem.png) |
-
-- Customer Screens
-
-| Home Screen                                                  | View Store Screen                                               | Favoutites Screen                                         | Maps Screen                                       |
-| ------------------------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------- |
-| ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/AddDeleteFav.gif) | ![fsdaf](./readme_assets/implementation/maps.gif) |
+| Home Screen                                                  | View Store Screen                                               | Write Reviews                                               | Maps Screen                                       |
+| ------------------------------------------------------------ | --------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- |
+| ![Landing](./readme_assets/implementation/customer-home.gif) | ![fsdaf](./readme_assets/implementation/customer-viewStore.png) | ![fsdaf](./readme_assets/implementation/write%20review.gif) | ![fsdaf](./readme_assets/implementation/maps.gif) |
 
 - Admin Panel
 
